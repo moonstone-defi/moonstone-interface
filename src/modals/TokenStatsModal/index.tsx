@@ -78,7 +78,7 @@ export default function TokenStatsModal({ token }: { token: any }) {
   let tokenInfo = useTokenInfo(useSolarContract())
 
   if (token.symbol == 'MOVR') tokenInfo = { circulatingSupply: '1500000', burnt: '0', totalSupply: '0', vaults: '0' }
-
+ 
   const price = formatNumberScale(priceData?.[token.symbol.toLowerCase()], true, 2)
 
   const modalOpen = useModalOpen(token.symbol == 'STONE' ? ApplicationModal.STONE_STATS : ApplicationModal.MOVR_STATS)
@@ -122,7 +122,7 @@ export default function TokenStatsModal({ token }: { token: any }) {
                 {token?.address && (
                   <ExternalLink
                     href={
-                      'https://blockscout.moonriver.moonbeam.network/tokens/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B'
+                      'https://blockscout.moonriver.moonbeam.network/tokens/0xFdA2c94589f0A24BaD5f4b900929119f6269c41B'
                     }
                     className="px-3 ring-0 ring-transparent ring-opacity-0"
                     color="light-green"
@@ -148,7 +148,7 @@ export default function TokenStatsModal({ token }: { token: any }) {
             {getSummaryLine(
               <div className="flex items-center">
                 <Typography variant="sm" className="flex items-center py-0.5">
-                  {i18n._(t`Circulating Supply`)}
+                  {i18n._(t`Total Supply`)}
                 </Typography>
                 {token.symbol == 'STONE' && (
                   <QuestionHelper
@@ -192,14 +192,14 @@ export default function TokenStatsModal({ token }: { token: any }) {
                   />
                 )}
               </div>,
-              formatNumberScale(tokenInfo.circulatingSupply, false, 2)
+              formatNumberScale(tokenInfo.totalSupply, false, 2)
             )}
             {getSummaryLine(
               <Typography variant="sm" className="flex items-center py-0.5">
                 {i18n._(t`Market Cap`)}
               </Typography>,
               formatNumberScale(
-                Number(tokenInfo.circulatingSupply) * (priceData?.[token.symbol.toLowerCase()] || 0),
+                Number(tokenInfo.totalSupply) * (priceData?.[token.symbol.toLowerCase()] || 0),
                 true,
                 2
               )
