@@ -2,7 +2,7 @@
 
 import Head from 'next/head'
 import Link from 'next/link'
-import SolarbeamLogo from '../../../components/SolarbeamLogo'
+import MoonstoneLogo from '../../../components/MoonstoneLogo'
 import DoubleGlowShadow from '../../../components/DoubleGlowShadow'
 import Card from '../../../components/Card'
 import LayoutWrapperAnalytics from '../../../components/LayoutWrapperAnalytics'
@@ -27,7 +27,7 @@ export default function AnalyticsTokens(): JSX.Element{
         <div className={`mb-2 pb-4 grid grid-cols-12 gap-4`}>
           <div className='flex justify-center items-center col-span-12 lg:justify'>
             <Link href='/farm'>
-              <SolarbeamLogo />
+              <MoonstoneLogo />
             </Link>
           </div>
         </div>

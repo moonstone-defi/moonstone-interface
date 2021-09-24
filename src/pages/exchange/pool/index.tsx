@@ -28,7 +28,7 @@ import { useTokenBalancesWithLoadingIndicator } from '../../../state/wallet/hook
 import { useV2Pairs } from '../../../hooks/useV2Pairs'
 import DoubleGlowShadow from '../../../components/DoubleGlowShadow'
 import { chain } from 'lodash'
-import SolarbeamLogo from '../../../components/SolarbeamLogo'
+import MoonstoneLogo from '../../../components/MoonstoneLogo'
 
 export default function Pool() {
   const { i18n } = useLingui()
@@ -99,7 +99,7 @@ export default function Pool() {
           content="Solarbeam liquidity pools are markets for trades between the two tokens, you can provide these tokens and become a liquidity provider to earn 0.25% of fees from trades."
         />
       </Head>
-      <SolarbeamLogo />
+      <MoonstoneLogo />
       <DoubleGlowShadow opacity="0.6">
         <Container maxWidth="2xl" className="space-y-6">
           {/* <Alert

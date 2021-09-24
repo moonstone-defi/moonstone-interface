@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { usePendingSolar, useUserInfo } from './hooks'
 import Button from '../../components/Button'
 import Dots from '../../components/Dots'
-import { SOLAR_DISTRIBUTOR_ADDRESS, SOLAR_VAULT_ADDRESS } from '../../constants/addresses'
+import { MASTERCHEF_ADDRESS, STONE_VAULT_ADDRESS } from '../../constants/addresses'
 import { Input as NumericalInput } from '../../components/NumericalInput'
 import { formatNumber, formatNumberScale, formatPercent } from '../../functions'
 import { getAddress } from '@ethersproject/address'
@@ -49,12 +49,12 @@ const VaultListItem = ({ farm }) => {
   // TODO: Replace these
   const { amount, nextHarvestUntil, userLockedUntil } = useUserInfo(farm, liquidityToken)
 
-  const pendingSolar = usePendingSolar(farm)
+  const pendingStone = usePendingSolar(farm)
 
   const typedDepositValue = tryParseAmount(depositValue, liquidityToken)
   const typedWithdrawValue = tryParseAmount(withdrawValue, liquidityToken)
 
-  const [approvalState, approve] = useApproveCallback(typedDepositValue, SOLAR_VAULT_ADDRESS[chainId])
+  const [approvalState, approve] = useApproveCallback(typedDepositValue, STONE_VAULT_ADDRESS[chainId])
 
   const { deposit, withdraw, harvest } = useMasterChef()
 
@@ -278,7 +278,7 @@ const VaultListItem = ({ farm }) => {
               </Button>
             </div>
           </div>
-          {pendingSolar && pendingSolar.greaterThan(ZERO) && (
+          {pendingStone && pendingStone.greaterThan(ZERO) && (
             <div className="px-4 pb-4">
               <Button
                 color="gradient"
@@ -315,7 +315,7 @@ const VaultListItem = ({ farm }) => {
                   }
                 }}
               >
-                {i18n._(t`Harvest ${formatNumber(pendingSolar.toFixed(18))} SOLAR`)}
+                {i18n._(t`Harvest ${formatNumber(pendingStone.toFixed(18))} STONE`)}
               </Button>
             </div>
           )}

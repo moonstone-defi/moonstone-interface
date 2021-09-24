@@ -49,7 +49,7 @@ const FarmListItem = ({ farm, ...rest }) => {
                 <div className="flex items-center justify-between	col-span-2 space-x-4 ">
                   <div className="text-xs text-right md:text-base text-secondary">Earn</div>
                   <div className="flex flex-col justify-center">
-                    <div className="font-bold text-righttext-high-emphesis">SOLAR</div>
+                    <div className="font-bold text-righttext-high-emphesis">STONE</div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between	col-span-2 space-x-4">
@@ -69,7 +69,7 @@ const FarmListItem = ({ farm, ...rest }) => {
               </div>
               <div className="space-y-1">
                 <div className="text-xs md:text-base text-transparent bg-clip-text bg-gradient-to-r from-yellow to-yellow">
-                  SOLAR earned
+                  STONE earned
                 </div>
                 <div className="flex items-center justify-between	 col-span-2 space-x-4">
                   <div className="flex flex-col justify-center">

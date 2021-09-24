@@ -8,7 +8,7 @@ import { t } from '@lingui/macro'
 import { useActiveWeb3React } from '../../../hooks/useActiveWeb3React'
 import { useLingui } from '@lingui/react'
 import DoubleGlowShadow from '../../../components/DoubleGlowShadow'
-import SolarbeamLogo from '../../../components/SolarbeamLogo'
+import MoonstoneLogo from '../../../components/MoonstoneLogo'
 import useSWR, { SWRResponse } from 'swr'
 import NavLink from '../../../components/NavLink'
 import Button from '../../../components/Button'
@@ -228,7 +228,7 @@ export default function Bridge() {
         <meta key="description" name="description" content="Bridge" />
       </Head>
 
-      <SolarbeamLogo />
+      <MoonstoneLogo />
 
       <Container maxWidth="2xl" className="space-y-6">
         <DoubleGlowShadow opacity="0.6">

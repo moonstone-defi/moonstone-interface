@@ -24,7 +24,7 @@ import { useActiveWeb3React } from '../../hooks/useActiveWeb3React'
 import { useLingui } from '@lingui/react'
 import { useMultichainCurrencyBalance, useTokenBalance } from '../../state/wallet/hooks'
 import DoubleGlowShadow from '../../components/DoubleGlowShadow'
-import SolarbeamLogo from '../../components/SolarbeamLogo'
+import MoonstoneLogo from '../../components/MoonstoneLogo'
 import { BottomGrouping } from '../../features/swap/styleds'
 import Button from '../../components/Button'
 import DualChainCurrencyInputPanel from '../../components/DualChainCurrencyInputPanel'
@@ -464,7 +464,7 @@ export default function Bridge() {
         <meta key="description" name="description" content="Bridge" />
       </Head>
 
-      <SolarbeamLogo />
+      <MoonstoneLogo />
 
       <Container maxWidth="2xl" className="space-y-6">
         <DoubleGlowShadow opacity="0.6">

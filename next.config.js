@@ -41,7 +41,7 @@ module.exports = withBundleAnalyzer(
       return [
         {
           source: '/',
-          destination: '/exchange/swap',
+          destination: '/farm',
           permanent: true,
         },
       ]

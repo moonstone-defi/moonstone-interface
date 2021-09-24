@@ -16,9 +16,8 @@ let farmsResult = null
 
 export async function farms() {
   if (!farmsResult) {
-    let distributorContract = new web3.eth.Contract(distributorAbi, '0xf03b75831397D4695a6b9dDdEEA0E578faa30907')
-    const poolLength = await distributorContract.methods.poolLength().call()
-
+    let masterchefContract = new web3.eth.Contract(distributorAbi, '0x84609555C297C607f3b5dBB47E11F7112528c61F')
+    const poolLength = await masterchefContract.methods.poolLength().call()
     const forHelper = []
     for (let index = 0; index < poolLength; index++) {
       forHelper.push(index)
@@ -28,7 +27,7 @@ export async function farms() {
     const poolsInfoPromises = []
 
     for (const poolIndex of forHelper) {
-      poolsInfoPromises.push(distributorContract.methods.poolInfo(poolIndex).call())
+      poolsInfoPromises.push(masterchefContract.methods.poolInfo(poolIndex).call())
     }
 
     const poolInfosResult = await Promise.all(poolsInfoPromises)
@@ -80,7 +79,7 @@ export async function farms() {
         ret.push({
           address: web3.utils.toChecksumAddress(pool.lpToken),
           baseSymbol:
-            token0info.symbol == 'SOLAR' || token1info.symbol == 'SOLAR'
+            token0info.symbol == 'STONE' || token1info.symbol == 'STONE'
               ? 'solar'
               : token0info.symbol == 'MOVR' || token1info.symbol == 'MOVR'
               ? 'movr'
@@ -88,9 +87,9 @@ export async function farms() {
               ? 'usdc'
               : '',
           baseAmount:
-            token0info.symbol == 'SOLAR' || token0info.symbol == 'MOVR'
+            token0info.symbol == 'STONE' || token0info.symbol == 'MOVR'
               ? token0amount
-              : token1info.symbol == 'SOLAR' || token1info.symbol == 'MOVR'
+              : token1info.symbol == 'STONE' || token1info.symbol == 'MOVR'
               ? token1amount
               : token0info.symbol == 'USDC'
               ? token0amount

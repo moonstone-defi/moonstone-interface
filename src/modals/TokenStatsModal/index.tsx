@@ -81,7 +81,7 @@ export default function TokenStatsModal({ token }: { token: any }) {
 
   const price = formatNumberScale(priceData?.[token.symbol.toLowerCase()], true, 2)
 
-  const modalOpen = useModalOpen(token.symbol == 'SOLAR' ? ApplicationModal.SOLAR_STATS : ApplicationModal.MOVR_STATS)
+  const modalOpen = useModalOpen(token.symbol == 'STONE' ? ApplicationModal.STONE_STATS : ApplicationModal.MOVR_STATS)
 
   const toggleWalletModal = useTokenStatsModalToggle(token)
 
@@ -150,7 +150,7 @@ export default function TokenStatsModal({ token }: { token: any }) {
                 <Typography variant="sm" className="flex items-center py-0.5">
                   {i18n._(t`Circulating Supply`)}
                 </Typography>
-                {token.symbol == 'SOLAR' && (
+                {token.symbol == 'STONE' && (
                   <QuestionHelper
                     text={
                       <div className="flex flex-col gap-2 py-1 px-3 w-full">

@@ -8,7 +8,7 @@ import { ButtonError } from '../../components/Button'
 import { AutoColumn } from '../../components/Column'
 import { AutoRow } from '../../components/Row'
 import DoubleGlowShadow from '../../components/DoubleGlowShadow'
-import SolarbeamLogo from '../../components/SolarbeamLogo'
+import MoonstoneLogo from '../../components/MoonstoneLogo'
 import Container from '../../components/Container'
 import Typography from '../../components/Typography'
 import { i18n } from '@lingui/core'
@@ -65,7 +65,7 @@ export default function Faucet(): JSX.Element {
         <meta key="description" name="description" content="Moonriver Faucet" />
       </Head>
 
-      <SolarbeamLogo />
+      <MoonstoneLogo />
 
       <ReCAPTCHA
         ref={recaptchaRef}
