@@ -323,7 +323,6 @@ export function useStonePrice() {
   const r1 = Number(_reserve1)
   const rx = r0  / r1
   const price = (r0 / r1) 
- 
   return price
 }
 

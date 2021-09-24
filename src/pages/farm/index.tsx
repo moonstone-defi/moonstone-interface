@@ -178,7 +178,7 @@ export default function Farm(): JSX.Element {
     <>
       <Head>
         <title>Farm | Moonstone</title>
-        <meta key="description" name="description" content="Farm STONE" />
+        <meta key="description" name="description" content="Farm MOONSTONE" />
       </Head>
 
       <div className="container px-0 mx-auto pb-6">

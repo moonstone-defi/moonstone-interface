@@ -65,7 +65,7 @@ const usePending = (farm) => {
       aclxRewarder &&
       farm &&
       library &&
-      (farm.chef === Chef.MASTERCHEF_V2 || farm.chef === Chef.MINICHEF)
+      (farm.chef === Chef.MASTERCHEF || farm.chef === Chef.MINICHEF)
     ) {
       fetchPendingReward()
     }

@@ -1,6 +1,7 @@
 :root {
     --primary: #111;
     --text-primary: #fff;
-    --font-sans: "Montserrat", -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', sans-serif;
+    --font-sans: "Uncial Antiqua", -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', sans-serif;
     --scrollbar-width: 10px;
 }
+

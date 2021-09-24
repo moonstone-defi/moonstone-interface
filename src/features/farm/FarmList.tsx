@@ -62,9 +62,10 @@ const FarmList = ({ farms, term, filter }) => {
               (sortConfig.direction === 'descending' && <ChevronDownIcon width={12} height={12} />))} */}
         </div>
       </div>
+      {/* temp fix for staking of movr pool */}
       <div className="flex-col mt-2">
-        {pools.map((farm, index) => (
-          <FarmListItem2 key={index} farm={farm} />
+        {pools.map((farm, index) => (farm.id != 1 ? 
+          <FarmListItem2 key={index} farm={farm} /> : null
         ))}
       </div>
     </>

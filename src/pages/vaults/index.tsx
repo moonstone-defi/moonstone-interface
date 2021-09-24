@@ -49,7 +49,7 @@ export default function Vault(): JSX.Element {
   const blocksPerDay = 86400 / Number(AVERAGE_BLOCK_TIME[chainId])
 
   const map = (pool) => {
-    pool.owner = 'Solarbeam'
+    pool.owner = 'Moonstone'
     pool.balance = 0
 
     const pair = VAULTS[chainId][pool.id]
@@ -62,7 +62,7 @@ export default function Vault(): JSX.Element {
 
       const defaultReward = {
         token: 'STONE',
-        icon: '/images/token/solar.png',
+        icon: '/images/token/stone.png',
         rewardPerBlock,
         rewardPerDay: rewardPerBlock * blocksPerDay,
         rewardPrice: stonePrice,

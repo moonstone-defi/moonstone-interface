@@ -96,14 +96,14 @@ const FarmListItem2 = ({ farm, ...rest }) => {
                     <div>
                       <span className="flex font-bold">{farm?.pair?.token0?.symbol}</span>
                       {token1 && <span className="flex font-bold">{farm?.pair?.token1?.symbol}</span>}
-                      {!token1 && token0?.symbol == 'STONE' && (
+                      {/* {!token1 && token0?.symbol == 'STONE' && (
                         <div className="flex flex-col">
                           <span className="text-emphasis underline hover:text-yellow">Unstake</span>
                           <Link href="/vaults">
                             <span className="text-emphasis underline hover:text-yellow">Use Vaults</span>
                           </Link>
                         </div>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
@@ -113,7 +113,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
                     {farm?.rewards?.map((reward, i) => (
                       <div key={i} className="flex items-center">
                         <Image
-                          src={`http://solarbeam.io/images/tokens/solar.png`}
+                          src={`/images/tokens/stone.png`}
                           width="50px"
                           height="50px"
                           className="rounded-md"
