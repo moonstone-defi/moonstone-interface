@@ -1,5 +1,5 @@
 const Web3 = require('web3')
-import distributorAbi from '../../constants/abis/solar-distributor.json'
+import distributorAbi from '../../constants/abis/masterchef.json'
 import pairAbi from '../../constants/abis/uniswap-v2-pair.json'
 import { POOLS } from '../../constants/farms'
 import { ChainId } from '../../sdk'

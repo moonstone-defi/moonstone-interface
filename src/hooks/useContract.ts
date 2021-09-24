@@ -55,10 +55,8 @@ import IUniswapV2PairABI from '../constants/abis/uniswap-v2-pair.json'
 import KASHIPAIR_ABI from '../constants/abis/kashipair.json'
 import MAKER_ABI from '../constants/abis/maker.json'
 import MASTERCHEF_ABI from '../constants/abis/masterchef.json'
-// import MASTERCHEF_ABI from '../constants/abis/solar-distributor.json'
 import STONE_VAULT_ABI from '../constants/abis/solar-vault.json'
 import STONE_LOCKER_ABI from '../constants/abis/solar-locker.json'
-// import MASTERCHEF_V2_ABI from '../constants/abis/masterchef-v2.json'
 import MEOWSHI_ABI from '../constants/abis/meowshi.json'
 import MERKLE_DISTRIBUTOR_ABI from '../constants/abis/merkle-distributor.json'
 import MINICHEF_ABI from '../constants/abis/minichef-v2.json'
@@ -227,7 +225,7 @@ export function useSolarContract(withSignerIfPossible?: boolean): Contract | nul
 }
 
 export function useMasterChefV2Contract(withSignerIfPossible?: boolean): Contract | null {
-  return useContract('0xEF0881eC094552b2e128Cf945EF17a6752B4Ec5d', MASTERCHEF_V2_ABI, withSignerIfPossible)
+  return useContract('0xEF0881eC094552b2e128Cf945EF17a6752B4Ec5d', MASTERCHEF_ABI, withSignerIfPossible)
 }
 export function useMiniChefContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
