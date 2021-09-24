@@ -342,7 +342,7 @@ export default function Add() {
         <meta
           key="description"
           name="description"
-          content="Add liquidity to the Moonstone AMM to enable gas optimised and low slippage trades across countless networks"
+          content="Add liquidity to the Solarbeam AMM to enable gas optimised and low slippage trades across countless networks"
         />
       </Head>
       <MoonstoneLogo />

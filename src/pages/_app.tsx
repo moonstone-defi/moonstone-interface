@@ -129,7 +129,7 @@ function MyApp({
         <meta key="og:site_name" property="og:site_name" content="Moonstone App" />
         <meta key="og:url" property="og:url" content="https://moonstone.games" />
         <meta key="og:image" property="og:image" content="https://moonstone.games/icon.png" />
-        <meta key="og:description" property="og:description" content="Moonstone - AMM on Moonriver." />
+        <meta key="og:description" property="og:description" content="Moonstone - Farm on Moonriver." />
       </Head>
 
       <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>

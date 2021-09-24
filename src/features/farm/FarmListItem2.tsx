@@ -53,12 +53,12 @@ const FarmListItem2 = ({ farm, ...rest }) => {
 
     farm.lpPrice = lpPrice
     farm.stonePrice = stonePrice
-
-    return Number(farm.totalLp / 10 ** decimals) * lpPrice
+    const tvl = Number(farm.totalLp / 10 ** decimals) * lpPrice
+    console.log('tvl', tvl, farm.totalLp, lpPrice )
+    return tvl
   }
 
   const tvl = getTvl()
-
   const roiPerBlock =
     farm?.rewards?.reduce((previousValue, currentValue) => {
       return previousValue + currentValue.rewardPerBlock * currentValue.rewardPrice

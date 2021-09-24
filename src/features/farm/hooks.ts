@@ -78,7 +78,7 @@ export function usePendingStone(farm) {
   const { account, chainId } = useActiveWeb3React()
 
   const contract = useChefContract(0)
-
+  console.log('contract',contract)
   const args = useMemo(() => {
     if (!account) {
       return
@@ -165,7 +165,7 @@ export function useStoneFarms(contract?: Contract | null) {
   }, [numberOfPools])
 
   const poolInfo = useSingleContractMultipleData(args ? contract : null, 'poolInfo', args)
-
+  console.log('poolInfo', poolInfo)
   return useMemo(() => {
     if (!poolInfo) {
       return []

@@ -238,7 +238,7 @@ export default function Farm(): JSX.Element {
                             setPendingTx(false)
                           }}
                         >
-                          Harvest All (~ {formatNumberScale(allStaked, true, 2)})
+                          Harvest All (~ {formatNumberScale(allStaked, true, 6)})
                         </Button>
                       )}
                     </div>
