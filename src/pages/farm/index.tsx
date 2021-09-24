@@ -206,7 +206,7 @@ export default function Farm(): JSX.Element {
                     </div>
                     <div className={`flex flex-col items-center justify-between px-6 py-6 `}>
                       <div className="flex items-center text-center justify-between py-2 text-emphasis">
-                        Total Value Locked: {formatNumberScale(summTvl + summTvlVaults, true, 2)}
+                        Total Value Locked: {formatNumberScale(summTvl /* + summTvlVaults */, true, 2)}
                       </div>
                       <div className="flex items-center text-center justify-between py-2 text-emphasis">
                         Farms TVL: {formatNumberScale(summTvl, true, 2)}
