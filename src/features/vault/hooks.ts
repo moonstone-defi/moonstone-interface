@@ -215,8 +215,6 @@ export function useTokenInfo(tokenContract?: Contract | null) {
   const _burnt = useSingleCallResult(
     tokenContract ? tokenContract : null,
     'totalBurned',
-/*     ['0x000000000000000000000000000000000000dEaD'],
- */    NEVER_RELOAD
   )?.result?.[0]
 
   const totalSupply = _totalSupply ? JSBI.BigInt(_totalSupply.toString()) : JSBI.BigInt(0)

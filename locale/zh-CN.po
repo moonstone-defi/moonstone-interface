@@ -234,8 +234,8 @@ msgstr "移除数量"
 msgid "An error occurred when trying to execute this swap. You may need to increase your slippage tolerance. If that does not work, there may be an incompatibility with the token you are trading. Note fee on transfer and rebase tokens are incompatible with Uniswap V3."
 msgstr "在试图执行该交换时发生了错误。你可能需要增加你的滑点容忍度。如果这不起作用，可能与你交易的代币不兼容。注意转移和重新安置代币的费用与Uniswap V3不兼容。"
 
-#: src/components/Header/index.tsx:96
-#: src/components/Header/index.tsx:222
+#: src/components/Footer/index.tsx:22
+#: src/components/Header/index.tsx:201
 msgid "Analytics"
 msgstr "分析界面"
 
@@ -378,8 +378,7 @@ msgstr "余额"
 #~ msgid "Borrowing allows you to obtain liquidity without selling. Your borrow limit depends on the amount of deposited collateral. You will be able to borrow up to 75% of your collateral and repay at any time with accrued interest."
 #~ msgstr "借款让您在不出售资产的情况下获得流动性。您的借款上限取决于您抵押物的价值。您可以借出您抵押品价值的75%，随时可以还款，并附上利息。"
 
-#: src/components/Header/index.tsx:72
-#: src/components/Header/index.tsx:207
+#: src/components/Header/index.tsx:191
 #: src/pages/bridge/history/index.tsx:227
 #: src/pages/bridge/history/index.tsx:247
 #: src/pages/bridge/index.tsx:390
@@ -397,7 +396,7 @@ msgstr "跨链桥"
 #~ msgid "Bridge Token"
 #~ msgstr ""
 
-#: src/pages/bridge/index.tsx:506
+#: src/pages/bridge/index.tsx:519
 msgid "Bridge tokens to and from the Moonriver Network"
 msgstr ""
 
@@ -646,7 +645,7 @@ msgid "Current"
 msgstr "目前"
 
 #: src/pages/bridge/history/index.tsx:124
-#: src/pages/bridge/history/index.tsx:291
+#: src/pages/bridge/history/index.tsx:304
 msgid "Date"
 msgstr ""
 
@@ -815,12 +814,12 @@ msgid "Expired"
 msgstr "过期"
 
 #: src/components/Header/index.tsx:51
-#: src/components/Header/index.tsx:186
+#: src/components/Header/index.tsx:170
 msgid "Farm"
 msgstr "农耕"
 
-#: src/components/Header/index.tsx:80
-#: src/components/Header/index.tsx:212
+#: src/pages/bridge/history/index.tsx:273
+#: src/pages/bridge/index.tsx:509
 msgid "Faucet"
 msgstr ""
 
@@ -873,7 +872,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/pages/bridge/history/index.tsx:145
-#: src/pages/bridge/history/index.tsx:293
+#: src/pages/bridge/history/index.tsx:306
 msgid "From"
 msgstr "从"
 
@@ -922,14 +921,19 @@ msgstr "返回"
 #: src/features/farm/FarmListItem.tsx:97
 #: src/features/farm/FarmListItemDetails.tsx:236
 #: src/features/vault/VaultListItemDetails.tsx:294
-#: src/pages/farm/index.tsx:233
+#: src/pages/farm/index.tsx:232
 msgid "Harvest"
 msgstr "收获"
 
 #: src/features/farm/FarmListItemDetails.tsx:248
 #: src/features/vault/VaultListItemDetails.tsx:318
-msgid "Harvest {0} SOLAR"
-msgstr "收获 {0} SOLAR"
+#~ msgid "Harvest {0} SOLAR"
+#~ msgstr "收获 {0} SOLAR"
+
+#: src/features/farm/FarmListItemDetails.tsx:248
+#: src/features/vault/VaultListItemDetails.tsx:318
+msgid "Harvest {0} STONE"
+msgstr ""
 
 #: src/pages/Yield/masterchefv1/InputGroup.tsx:126
 #~ msgid "Harvest {0} SUSHI"
@@ -1181,7 +1185,7 @@ msgstr "清单"
 
 #: src/components/PositionCard/index.tsx:170
 #: src/components/TransactionList.tsx:40
-#: src/features/farm/FarmList.tsx:73
+#: src/features/farm/FarmList.tsx:74
 #: src/features/vault/VaultList.tsx:28
 #: src/pages/exchange/find/index.tsx:171
 #: src/pages/exchange/pool/index.tsx:127
@@ -1212,8 +1216,7 @@ msgstr "加载余额"
 msgid "Lock"
 msgstr "锁定"
 
-#: src/components/Header/index.tsx:67
-#: src/components/Header/index.tsx:202
+#: src/components/Header/index.tsx:186
 msgid "Locker"
 msgstr "锁"
 
@@ -1359,8 +1362,7 @@ msgstr "我的订单"
 #~ msgid "My SUSHI"
 #~ msgstr ""
 
-#: src/components/Header/index.tsx:88
-#: src/components/Header/index.tsx:217
+#: src/components/Header/index.tsx:196
 msgid "NFT Launchpad"
 msgstr "NFT Launchpad"
 
@@ -1385,7 +1387,7 @@ msgstr "刚接触数字货币？"
 #~ msgid "No Liquidity found"
 #~ msgstr "没有发现流动性"
 
-#: src/features/farm/FarmList.tsx:73
+#: src/features/farm/FarmList.tsx:74
 msgid "No Results"
 msgstr "未找到结果"
 
@@ -1446,7 +1448,7 @@ msgstr "打开订单"
 #~ msgid "Open Source"
 #~ msgstr "开源"
 
-#: src/components/Header/index.tsx:130
+#: src/components/Header/index.tsx:114
 msgid "Open main menu"
 msgstr "打开主菜单"
 
@@ -1529,7 +1531,7 @@ msgid "Please type the word \"confirm\" to {0} and lock your tokens for {1}."
 msgstr ""
 
 #: src/components/Header/index.tsx:43
-#: src/components/Header/index.tsx:178
+#: src/components/Header/index.tsx:162
 #: src/pages/exchange/pool/index.tsx:95
 msgid "Pool"
 msgstr "资金池"
@@ -1567,7 +1569,7 @@ msgstr "汇集{0}"
 #~ msgid "Pour a hot bowl of MISO, the new <0>token launchpad</0> from SUSHI"
 #~ msgstr "来一碗热味增汤, Sushi全新的<0>代币Launchpad</0>"
 
-#: src/pages/bridge/index.tsx:620
+#: src/pages/bridge/index.tsx:633
 msgid "Powered by Anyswap Network"
 msgstr ""
 
@@ -1714,8 +1716,12 @@ msgstr "路由经过这些代币将给您的交易带来最好的价格。"
 #~ msgstr ""
 
 #: src/components/YieldDetails/index.tsx:104
-msgid "SOLAR per $1000"
-msgstr "每 $1000 的SOLAR"
+#~ msgid "SOLAR per $1000"
+#~ msgstr "每 $1000 的SOLAR"
+
+#: src/components/YieldDetails/index.tsx:104
+msgid "STONE per $1000"
+msgstr ""
 
 #~ msgid "SUSHI Balance"
 #~ msgstr "SUSHI余额"
@@ -1815,7 +1821,11 @@ msgid "Solar Vault"
 msgstr ""
 
 #: src/pages/vaults/index.tsx:158
-msgid "Solar Vault is a set of high incentivized pools. Long term supporters can choose to lock SOLAR for a determined period for higher rewards."
+#~ msgid "Solar Vault is a set of high incentivized pools. Long term supporters can choose to lock SOLAR for a determined period for higher rewards."
+#~ msgstr ""
+
+#: src/pages/vaults/index.tsx:158
+msgid "Solar Vault is a set of high incentivized pools. Long term supporters can choose to lock STONE for a determined period for higher rewards."
 msgstr ""
 
 #: src/pages/exchange/swap/[[...tokens]].tsx:369
@@ -1886,7 +1896,7 @@ msgstr "质押"
 #~ msgstr "质押APR"
 
 #: src/pages/bridge/history/index.tsx:161
-#: src/pages/bridge/history/index.tsx:295
+#: src/pages/bridge/history/index.tsx:308
 msgid "Status"
 msgstr ""
 
@@ -1927,7 +1937,7 @@ msgstr "提供{0} {1}和{2} {3}"
 
 #: src/components/ExchangeHeader.tsx:42
 #: src/components/Header/index.tsx:35
-#: src/components/Header/index.tsx:170
+#: src/components/Header/index.tsx:154
 #: src/pages/exchange/swap/[[...tokens]].tsx:569
 #: src/pages/exchange/swap/[[...tokens]].tsx:598
 msgid "Swap"
@@ -2052,7 +2062,7 @@ msgid "Tip: Custom tokens are stored locally in your browser"
 msgstr "提示：自定义令牌存储在你的浏览器中"
 
 #: src/pages/bridge/history/index.tsx:153
-#: src/pages/bridge/history/index.tsx:294
+#: src/pages/bridge/history/index.tsx:307
 msgid "To"
 msgstr "到"
 
@@ -2072,7 +2082,7 @@ msgstr "切换专家模式"
 msgid "Token"
 msgstr "代币"
 
-#: src/pages/bridge/index.tsx:534
+#: src/pages/bridge/index.tsx:547
 msgid "Token to bridge:"
 msgstr ""
 
@@ -2097,6 +2107,7 @@ msgstr ""
 #~ msgid "Tools to optimize your workflow."
 #~ msgstr "用于优化工作流程的工具。"
 
+#: src/pages/analytics/home/index.tsx:381
 #: src/pages/analytics/pairs/index.tsx:46
 #: src/pages/analytics/tokens/index.tsx:41
 msgid "Top Tokens"
@@ -2116,7 +2127,7 @@ msgid "Trading Fee"
 msgstr "交易费用"
 
 #: src/pages/bridge/history/index.tsx:132
-#: src/pages/bridge/history/index.tsx:292
+#: src/pages/bridge/history/index.tsx:305
 msgid "Transaction"
 msgstr ""
 
@@ -2218,8 +2229,7 @@ msgstr "解开"
 #~ msgid "V2 Rewarder"
 #~ msgstr "V2奖励器"
 
-#: src/components/Header/index.tsx:59
-#: src/components/Header/index.tsx:194
+#: src/components/Header/index.tsx:178
 msgid "Vaults"
 msgstr ""
 
@@ -2274,7 +2284,7 @@ msgstr "在浏览器查看"
 #~ msgid "View pair analytics"
 #~ msgstr "查看交易对分析"
 
-#: src/pages/bridge/history/index.tsx:269
+#: src/pages/bridge/history/index.tsx:282
 msgid "View the history of all your bridge interactions"
 msgstr ""
 
@@ -2509,7 +2519,7 @@ msgid "Your transaction will revert if there is a large, unfavorable price movem
 msgstr "如果交易在确认之前出现大的不利价格变动，则交易将恢复。"
 
 #: src/components/AccountDetails/index.tsx:183
-#: src/pages/bridge/history/index.tsx:303
+#: src/pages/bridge/history/index.tsx:316
 msgid "Your transactions will appear here..."
 msgstr "你的交易将在这里显示"
 
