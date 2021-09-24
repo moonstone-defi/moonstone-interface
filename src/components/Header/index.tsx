@@ -107,7 +107,7 @@ function AppBar(): JSX.Element {
                 </div>
                 <div className="flex flex-1 -mr-2 sm:hidden">
                   <div className="flex-1">
-                    <Image src="/icon.png" alt="Solarbeam" height="40px" width="40px" className="sm:hidden" />
+                    <Image src="/icon.png" alt="Moonstone" height="40px" width="40px" className="sm:hidden" />
                   </div>
                   <LanguageSwitch />
                   <Popover.Button className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-high-emphesis focus:outline-none">

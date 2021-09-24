@@ -460,7 +460,7 @@ export default function Bridge() {
       </Modal>
 
       <Head>
-        <title>{i18n._(t`Bridge`)} | Solarbeam</title>
+        <title>{i18n._(t`Bridge`)} | Moonstone</title>
         <meta key="description" name="description" content="Bridge" />
       </Head>
 

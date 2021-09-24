@@ -62,8 +62,8 @@ export default function Locker(): JSX.Element {
   return (
     <>
       <Head>
-        <title>Locker | Solarbeam</title>
-        <meta key="description" name="description" content="Solarbeam Locker" />
+        <title>Locker | Moonstone</title>
+        <meta key="description" name="description" content="Moonstone Locker" />
       </Head>
 
       <div className="container px-0 mx-auto pb-6">

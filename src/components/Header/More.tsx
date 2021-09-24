@@ -10,34 +10,34 @@ import { useLingui } from '@lingui/react'
 import NavLink from '../NavLink'
 
 const items = (i18n: I18n) => [
-  {
+  /*  {
     name: i18n._(t`Docs`),
-    description: i18n._(t`Documentation for Solarbeam.io users`),
-    href: 'https://docs.solarbeam.io',
+    description: i18n._(t`Documentation for Moonstone users`),
+    href: 'https://docs.moonstone.games',
     external: true,
-  },
+  }, */
   {
     name: i18n._(t`Github`),
-    description: i18n._(t`We're supporters of Open Source`),
-    href: 'https://github.com/solarbeamio',
+    description: i18n._(t`Take a look at our code!`),
+    href: 'https://github.com/moonstone-defi',
     external: true,
   },
   {
     name: i18n._(t`Telegram`),
     description: i18n._(t`Join the community on Telegram`),
-    href: 'https://t.me/solarbeamio',
+    href: 'https://t.me/MoonstoneChat',
     external: true,
   },
-  {
+  /* {
     name: i18n._(t`Discord`),
     description: i18n._(t`Join the community on Discord`),
     href: 'https://discord.gg/rK4AjZXuwf',
     external: true,
-  },
+  }, */
   {
     name: i18n._(t`Twitter`),
     description: i18n._(t`Follow us on Twitter`),
-    href: 'https://twitter.com/solarbeamio',
+    href: 'https://twitter.com/moonstonemovr',
     external: true,
   },
 ]

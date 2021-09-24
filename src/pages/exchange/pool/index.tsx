@@ -92,11 +92,11 @@ export default function Pool() {
   return (
     <>
       <Head>
-        <title>{i18n._(t`Pool`)} | Solarbeam</title>
+        <title>{i18n._(t`Pool`)} | Moonstone</title>
         <meta
           key="description"
           name="description"
-          content="Solarbeam liquidity pools are markets for trades between the two tokens, you can provide these tokens and become a liquidity provider to earn 0.25% of fees from trades."
+          content="Moonstone liquidity pools are markets for trades between the two tokens, you can provide these tokens and become a liquidity provider to earn 0.25% of fees from trades."
         />
       </Head>
       <MoonstoneLogo />

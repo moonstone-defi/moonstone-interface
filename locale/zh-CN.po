@@ -120,8 +120,8 @@ msgstr "30天"
 #~ msgstr ""
 
 #: src/features/swap/AdvancedSwapDetails.tsx:92
-msgid "A portion of each trade (0.25%) goes Solarbeam Treasury."
-msgstr "每笔交易的一部分（0.25%）会进入Solarbeam金库"
+msgid "A portion of each trade (0.25%) goes Moonstone Treasury."
+msgstr "每笔交易的一部分（0.25%）会进入Moonstone金库"
 
 #: src/features/lending/TradeReview.tsx:72
 msgid "A portion of each trade (0.25%) goes to liquidity providers as a protocol incentive."
@@ -709,7 +709,7 @@ msgstr "文档"
 
 #: src/components/Header/More.tsx:15
 #: src/components/Menu.tsx:14
-msgid "Documentation for Solarbeam.io users"
+msgid "Documentation for Moonstone.io users"
 msgstr ""
 
 #: src/components/Header/More.tsx:21 src/components/Menu.tsx:19
@@ -1645,8 +1645,8 @@ msgid "Remove Liquidity"
 msgstr "删除流动金"
 
 #: src/pages/exchange/remove/[[...tokens]].tsx:715
-msgid "Remove liquidity of Solarbeam"
-msgstr "从Solarbeam中移除流动性"
+msgid "Remove liquidity of Moonstone"
+msgstr "从Moonstone中移除流动性"
 
 #: src/pages/exchange/swap/[[...tokens]].tsx:458
 msgid "Remove recipient"
@@ -1829,8 +1829,8 @@ msgid "Solar Vault is a set of high incentivized pools. Long term supporters can
 msgstr ""
 
 #: src/pages/exchange/swap/[[...tokens]].tsx:369
-msgid "Solarbeam"
-msgstr "Solarbeam"
+msgid "Moonstone"
+msgstr "Moonstone"
 
 #: src/features/lending/Button.tsx:28
 #: src/features/limit-order/LimitOrderButton.tsx:189

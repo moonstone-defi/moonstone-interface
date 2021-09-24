@@ -23,7 +23,7 @@
       "symbol": "SOLAR",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "http://solarbeam.io/icon.png"
+      "logoURI": "http://moonstone.games/icon.png"
     },
     {
       "name": "Wrapped MOVR",
@@ -31,7 +31,7 @@
       "symbol": "WMOVR",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/movr.png"
+      "logoURI": "https://moonstone.games/images/tokens/movr.png"
     },
     {
       "name": "RiverBoat",
@@ -39,7 +39,7 @@
       "symbol": "RIB",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/rib.png"
+      "logoURI": "https://moonstone.games/images/tokens/rib.png"
     },
     {
       "name": "USDC Coin",
@@ -47,7 +47,7 @@
       "symbol": "USDC",
       "decimals": 6,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/usdc.png"
+      "logoURI": "https://moonstone.games/images/tokens/usdc.png"
     },
     {
       "name": "Dai Stablecoin",
@@ -55,7 +55,7 @@
       "symbol": "DAI",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/dai.png"
+      "logoURI": "https://moonstone.games/images/tokens/dai.png"
     },
     {
       "name": "Binance-Peg BUSD Token",
@@ -63,7 +63,7 @@
       "symbol": "BUSD",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/busd.png"
+      "logoURI": "https://moonstone.games/images/tokens/busd.png"
     },
     {
       "name": "KusaMOON",
@@ -71,7 +71,7 @@
       "symbol": "KMOON",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/kmoon.png"
+      "logoURI": "https://moonstone.games/images/tokens/kmoon.png"
     },
     {
       "name": "Ethereum",
@@ -79,7 +79,7 @@
       "symbol": "ETH",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/eth.png"
+      "logoURI": "https://moonstone.games/images/tokens/eth.png"
     },
     {
       "name": "Binance Coin",
@@ -87,7 +87,7 @@
       "symbol": "BNB",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/bnb.png"
+      "logoURI": "https://moonstone.games/images/tokens/bnb.png"
     },
     {
       "name": "MoonBeans",
@@ -95,7 +95,7 @@
       "symbol": "BEANS",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/beans.png"
+      "logoURI": "https://moonstone.games/images/tokens/beans.png"
     },
     {
       "name": "Laika Protocol",
@@ -103,7 +103,7 @@
       "symbol": "LAIKA",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/laika.png"
+      "logoURI": "https://moonstone.games/images/tokens/laika.png"
     },
     {
       "name": "Wrapped BTC",
@@ -111,7 +111,7 @@
       "symbol": "WBTC",
       "decimals": 8,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/wbtc.png"
+      "logoURI": "https://moonstone.games/images/tokens/wbtc.png"
     },
     {
       "name": "Tether USD",
@@ -119,7 +119,7 @@
       "symbol": "USDT",
       "decimals": 6,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/usdt.png"
+      "logoURI": "https://moonstone.games/images/tokens/usdt.png"
     },
     {
       "name": "MoonKafe",
@@ -127,7 +127,7 @@
       "symbol": "KAFE",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://solarbeam.io/images/tokens/kafe.png"
+      "logoURI": "https://moonstone.games/images/tokens/kafe.png"
     }
   ]
 }

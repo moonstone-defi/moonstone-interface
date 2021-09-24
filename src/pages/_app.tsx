@@ -106,7 +106,7 @@ function MyApp({
         />
         <title key="title">Moonstone</title>
 
-        <meta key="description" name="description" content="Moonstone - AMM on Moonriver." />
+        <meta key="description" name="description" content="Moonstone - Farm on Moonriver." />
 
         <meta name="application-name" content="Moonstone App" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,14 +121,14 @@ function MyApp({
 
         <meta key="twitter:card" name="twitter:card" content="app" />
         <meta key="twitter:title" name="twitter:title" content="Moonstone App" />
-        <meta key="twitter:url" name="twitter:url" content="https://solarbeam.io" />
-        <meta key="twitter:description" name="twitter:description" content="Moonstone - AMM on Moonriver." />
-        <meta key="twitter:image" name="twitter:image" content="https://solarbeam.io/icons/icon.png" />
-        <meta key="twitter:creator" name="twitter:creator" content="@solarbeam.io" />
+        <meta key="twitter:url" name="twitter:url" content="https://moonstone.games" />
+        <meta key="twitter:description" name="twitter:description" content="Moonstone - Farm on Moonriver." />
+        <meta key="twitter:image" name="twitter:image" content="https://moonstone.games/icons/icon.png" />
+        <meta key="twitter:creator" name="twitter:creator" content="@moonstonemovr" />
         <meta key="og:type" property="og:type" content="website" />
         <meta key="og:site_name" property="og:site_name" content="Moonstone App" />
-        <meta key="og:url" property="og:url" content="https://solarbeam.io" />
-        <meta key="og:image" property="og:image" content="https://solarbeam.io/icon.png" />
+        <meta key="og:url" property="og:url" content="https://moonstone.games" />
+        <meta key="og:image" property="og:image" content="https://moonstone.games/icon.png" />
         <meta key="og:description" property="og:description" content="Moonstone - AMM on Moonriver." />
       </Head>
 

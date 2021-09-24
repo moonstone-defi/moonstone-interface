@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: lokalise.com\n"
-"Project-Id-Version: Solarbeam Interface\n"
+"Project-Id-Version: Moonstone Interface\n"
 "PO-Revision-Date: 2021-05-05 14:23\n"
 "Last-Translator: lokalise.com\n"
 "Language-Team: lokalise.com\n\n"
@@ -119,12 +119,12 @@ msgstr "30 Days"
 #~ msgstr "A portion of each trade (0.05%) goes to xSUSHI holders as a protocol incentive."
 
 #: src/features/swap/AdvancedSwapDetails.tsx:92
-#~ msgid "A portion of each trade (0.20%) goes Solarbeam Treasury."
-#~ msgstr "A portion of each trade (0.20%) goes Solarbeam Treasury."
+#~ msgid "A portion of each trade (0.20%) goes Moonstone Treasury."
+#~ msgstr "A portion of each trade (0.20%) goes Moonstone Treasury."
 
 #: src/features/swap/AdvancedSwapDetails.tsx:92
-msgid "A portion of each trade (0.25%) goes Solarbeam Treasury."
-msgstr "A portion of each trade (0.25%) goes Solarbeam Treasury."
+msgid "A portion of each trade (0.25%) goes Moonstone Treasury."
+msgstr "A portion of each trade (0.25%) goes Moonstone Treasury."
 
 #: src/features/lending/TradeReview.tsx:72
 msgid "A portion of each trade (0.25%) goes to liquidity providers as a protocol incentive."
@@ -752,8 +752,8 @@ msgstr "Docs"
 
 #: src/components/Header/More.tsx:15
 #: src/components/Menu.tsx:14
-msgid "Documentation for Solarbeam.io users"
-msgstr "Documentation for Solarbeam.io users"
+msgid "Documentation for Moonstone.io users"
+msgstr "Documentation for Moonstone.io users"
 
 #: src/components/Header/More.tsx:21
 #: src/components/Menu.tsx:19
@@ -1773,8 +1773,8 @@ msgstr "Remove Liquidity"
 #~ msgstr "Remove liquidity of SolarBeam"
 
 #: src/pages/exchange/remove/[[...tokens]].tsx:715
-msgid "Remove liquidity of Solarbeam"
-msgstr "Remove liquidity of Solarbeam"
+msgid "Remove liquidity of Moonstone"
+msgstr "Remove liquidity of Moonstone"
 
 #: src/pages/exchange/swap/[[...tokens]].tsx:458
 msgid "Remove recipient"
@@ -1966,8 +1966,8 @@ msgstr "Solar Vault is a set of high incentivized pools. Long term supporters ca
 #~ msgstr "SolarBeam"
 
 #: src/pages/exchange/swap/[[...tokens]].tsx:369
-msgid "Solarbeam"
-msgstr "Solarbeam"
+msgid "Moonstone"
+msgstr "Moonstone"
 
 #: src/features/lending/Button.tsx:28
 #: src/features/limit-order/LimitOrderButton.tsx:189

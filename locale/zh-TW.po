@@ -118,7 +118,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/features/swap/AdvancedSwapDetails.tsx:92
-msgid "A portion of each trade (0.25%) goes Solarbeam Treasury."
+msgid "A portion of each trade (0.25%) goes Moonstone Treasury."
 msgstr ""
 
 #: src/features/lending/TradeReview.tsx:72
@@ -1563,7 +1563,7 @@ msgid "Remove Liquidity"
 msgstr "移除流動性"
 
 #: src/pages/exchange/remove/[[...tokens]].tsx:715
-msgid "Remove liquidity of Solarbeam"
+msgid "Remove liquidity of Moonstone"
 msgstr ""
 
 #: src/pages/exchange/swap/[[...tokens]].tsx:459
@@ -1726,7 +1726,7 @@ msgstr "可容忍滑點"
 #~ msgstr ""
 
 #: src/pages/exchange/swap/[[...tokens]].tsx:370
-msgid "Solarbeam"
+msgid "Moonstone"
 msgstr ""
 
 #: src/features/lending/Button.tsx:28

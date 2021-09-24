@@ -38,7 +38,7 @@ const FarmListItem = ({ farm, ...rest }) => {
                     </span>
                   </div>
                   {farm?.pair?.type === PairType.SWAP && (
-                    <div className="text-xs md:text-base text-secondary">Solarbeam LP</div>
+                    <div className="text-xs md:text-base text-secondary">Moonstone LP</div>
                   )}
                   {farm?.pair?.type === PairType.KASHI && (
                     <div className="text-xs md:text-base text-secondary">Kashi Farm</div>

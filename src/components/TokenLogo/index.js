@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { isAddress } from '../../utils'
 
-const ethereumLogo = 'https://solarbeam.io/images/tokens/eth.png'
+const ethereumLogo = 'https://moonstone.games/images/tokens/eth.png'
 
 const BAD_IMAGES = {}
 

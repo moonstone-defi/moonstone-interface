@@ -61,7 +61,7 @@ export default function Faucet(): JSX.Element {
   return (
     <>
       <Head>
-        <title>Faucet | Solarbeam</title>
+        <title>Faucet | Moonstone</title>
         <meta key="description" name="description" content="Moonriver Faucet" />
       </Head>
 
@@ -82,12 +82,12 @@ export default function Faucet(): JSX.Element {
                 {i18n._(t`Moonriver Faucet`)}
               </Typography>
               <Typography component="h1" variant="base">
-                A Faucet is a tool that provides a small amount of MOVR for users that used the bridge to start using Solarbeam.io without having to
+                A Faucet is a tool that provides a small amount of MOVR for users that used the bridge to start using Moonstone.io without having to
                 buy MOVR somewhere else.
               </Typography>
             </div>
             <div className="flex flex-1 justify-center text-center items-center mt-8 mb-12">
-              <Image src="/images/faucet/moonriver-faucet.png" alt="Solarbeam" width={150} height={150} />
+              <Image src="/images/faucet/moonriver-faucet.png" alt="Moonstone" width={150} height={150} />
             </div>
             <div className="p-4 mb-3 space-y-1 text-center">
               <Typography component="h1" variant="base">

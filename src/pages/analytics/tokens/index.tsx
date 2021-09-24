@@ -19,7 +19,7 @@ export default function AnalyticsTokens(): JSX.Element{
   return (
     <>
       <Head>
-        <title>Analytics | Solarbeam</title>
+        <title>Analytics | Moonstone</title>
         <meta key='description' name='description' content='Analytics' />
       </Head>
 

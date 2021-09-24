@@ -129,7 +129,7 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
       <h1 className="text-center">
         {`Looks like you're using an unsupported network.`}
         <br />
-        {`Switch to Moonriver Network to use Solarbeam.io.`}
+        {`Switch to Moonriver Network to use Moonstone.io.`}
       </h1>
     )
   }
