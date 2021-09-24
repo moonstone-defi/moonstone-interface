@@ -13,12 +13,12 @@ const supportedTokens = {
     symbol: 'MOVR',
     icon: '/images/tokens/movr.png',
   },
-  SOLAR: {
-    name: 'Solarbeam Token',
-    symbol: 'SOLAR',
-    icon: '/images/tokens/solar.png',
+  STONE: {
+    name: 'Moonstone Token',
+    symbol: 'STONE',
+    icon: '/images/tokens/stone.png',
     address: {
-      [ChainId.MOONRIVER]: '0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B',
+      [ChainId.MOONRIVER]: '0xFdA2c94589f0A24BaD5f4b900929119f6269c41B',
     },
   },
 }
@@ -45,7 +45,7 @@ function TokenStatusInner({ token }) {
         />
       )}
       <div className="px-3 py-2 text-primary text-bold">
-        {formatNumberScale(priceData?.[token.symbol.toLowerCase()], true, 2)}
+        {formatNumberScale(priceData?.[token.symbol.toLowerCase()], true, 3)}
       </div>
     </div>
   )

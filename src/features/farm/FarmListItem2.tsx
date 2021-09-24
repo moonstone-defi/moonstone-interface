@@ -7,7 +7,7 @@ import Image from '../../components/Image'
 import React, { useContext, useState } from 'react'
 import { useCurrency } from '../../hooks/Tokens'
 import { useV2PairsWithPrice } from '../../hooks/useV2Pairs'
-import { SOLAR_ADDRESS } from '../../constants/tokens'
+import { STONE_ADDRESS } from '../../constants/tokens'
 import { useActiveWeb3React } from '../../hooks'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
@@ -28,7 +28,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
 
   const priceData = useContext(PriceContext)
 
-  const solarPrice = priceData?.['solar']
+  const stonePrice = priceData?.['stone']
   const movrPrice = priceData?.['movr']
   const ribPrice = priceData?.['rib']
 
@@ -40,8 +40,8 @@ const FarmListItem2 = ({ farm, ...rest }) => {
   function getTvl() {
     let lpPrice = 0
     let decimals = 18
-    if (farm.lpToken.toLowerCase() == SOLAR_ADDRESS[chainId].toLowerCase()) {
-      lpPrice = solarPrice
+    if (farm.lpToken.toLowerCase() == STONE_ADDRESS[chainId].toLowerCase()) {
+      lpPrice = stonePrice
       decimals = farm.pair.token0?.decimals
     } else if (farm.lpToken.toLowerCase() == WNATIVE[chainId].toLowerCase()) {
       lpPrice = movrPrice
@@ -52,7 +52,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     }
 
     farm.lpPrice = lpPrice
-    farm.solarPrice = solarPrice
+    farm.stonePrice = stonePrice
 
     return Number(farm.totalLp / 10 ** decimals) * lpPrice
   }
@@ -96,14 +96,14 @@ const FarmListItem2 = ({ farm, ...rest }) => {
                     <div>
                       <span className="flex font-bold">{farm?.pair?.token0?.symbol}</span>
                       {token1 && <span className="flex font-bold">{farm?.pair?.token1?.symbol}</span>}
-                      {!token1 && token0?.symbol == 'SOLAR' && (
+                      {/* {!token1 && token0?.symbol == 'STONE' && (
                         <div className="flex flex-col">
                           <span className="text-emphasis underline hover:text-yellow">Unstake</span>
                           <Link href="/vaults">
                             <span className="text-emphasis underline hover:text-yellow">Use Vaults</span>
                           </Link>
                         </div>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
@@ -113,7 +113,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
                     {farm?.rewards?.map((reward, i) => (
                       <div key={i} className="flex items-center">
                         <Image
-                          src={`http://solarbeam.io/images/tokens/solar.png`}
+                          src={`/images/tokens/stone.png`}
                           width="50px"
                           height="50px"
                           className="rounded-md"
@@ -165,7 +165,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
           token0={token0}
           token1={token1}
           lpPrice={farm.lpPrice}
-          solarPrice={solarPrice}
+          stonePrice={stonePrice}
         />
       )}
     </React.Fragment>

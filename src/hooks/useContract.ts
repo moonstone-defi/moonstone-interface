@@ -6,8 +6,8 @@ import {
   MOVR_USDC_PAIR,
   MULTICALL2_ADDRESS,
   RIB_MOVR_PAIR,
-  SOLAR_MOVR_PAIR,
-  SOLAR_VAULT_ADDRESS,
+  STONE_MOVR_PAIR,
+  STONE_VAULT_ADDRESS,
   WNATIVE,
   ZAPPER_ADDRESS,
 } from '../constants/addresses'
@@ -15,7 +15,7 @@ import {
   ARGENT_WALLET_DETECTOR_ABI,
   ARGENT_WALLET_DETECTOR_MAINNET_ADDRESS,
 } from '../constants/abis/argent-wallet-detector'
-import { BAR_ADDRESS, ChainId, MAKER_ADDRESS, MASTERCHEF_ADDRESS, SUSHI_ADDRESS, TIMELOCK_ADDRESS } from '../sdk'
+import { BAR_ADDRESS, ChainId, MAKER_ADDRESS,  SUSHI_ADDRESS, TIMELOCK_ADDRESS } from '../sdk'
 import {
   BENTOBOX_ADDRESS,
   BORING_HELPER_ADDRESS,
@@ -27,10 +27,10 @@ import {
 } from '../constants/kashi'
 import {
   MERKLE_DISTRIBUTOR_ADDRESS,
-  SOLAR_DISTRIBUTOR_ADDRESS,
+  MASTERCHEF_ADDRESS,
   FACTORY_ADDRESS,
   ROUTER_ADDRESS,
-  SOLAR_ADDRESS,
+  STONE_ADDRESS,
 } from '../constants'
 import { MULTICALL_ABI, MULTICALL_NETWORKS } from '../constants/multicall'
 
@@ -55,10 +55,10 @@ import IUniswapV2PairABI from '../constants/abis/uniswap-v2-pair.json'
 import KASHIPAIR_ABI from '../constants/abis/kashipair.json'
 import MAKER_ABI from '../constants/abis/maker.json'
 import MASTERCHEF_ABI from '../constants/abis/masterchef.json'
-import SOLAR_DISTRIBUTOR_ABI from '../constants/abis/solar-distributor.json'
-import SOLAR_VAULT_ABI from '../constants/abis/solar-vault.json'
-import SOLAR_LOCKER_ABI from '../constants/abis/solar-locker.json'
-import MASTERCHEF_V2_ABI from '../constants/abis/masterchef-v2.json'
+// import MASTERCHEF_ABI from '../constants/abis/solar-distributor.json'
+import STONE_VAULT_ABI from '../constants/abis/solar-vault.json'
+// import STONE_LOCKER_ABI from '../constants/abis/solar-locker.json'
+// import MASTERCHEF_V2_ABI from '../constants/abis/masterchef-v2.json'
 import MEOWSHI_ABI from '../constants/abis/meowshi.json'
 import MERKLE_DISTRIBUTOR_ABI from '../constants/abis/merkle-distributor.json'
 import MINICHEF_ABI from '../constants/abis/minichef-v2.json'
@@ -186,24 +186,24 @@ export function useMasterChefContract(withSignerIfPossible?: boolean): Contract 
   return useContract(chainId && MASTERCHEF_ADDRESS[chainId], MASTERCHEF_ABI, withSignerIfPossible)
 }
 
-export function useSolarDistributorContract(withSignerIfPossible?: boolean): Contract | null {
+export function useStoneMasterchefContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId && SOLAR_DISTRIBUTOR_ADDRESS[chainId], SOLAR_DISTRIBUTOR_ABI, withSignerIfPossible)
+  return useContract(chainId && MASTERCHEF_ADDRESS[chainId], MASTERCHEF_ABI, withSignerIfPossible)
 }
 
 export function useSolarVaultContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId && SOLAR_VAULT_ADDRESS[chainId], SOLAR_VAULT_ABI, withSignerIfPossible)
+  return useContract(chainId && STONE_VAULT_ADDRESS[chainId], STONE_VAULT_ABI, withSignerIfPossible)
 }
 
 export function useLockerContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId && LOCKER_ADDRESS[chainId], SOLAR_LOCKER_ABI, withSignerIfPossible)
+  return useContract(chainId && LOCKER_ADDRESS[chainId], STONE_LOCKER_ABI, withSignerIfPossible)
 }
 
-export function useSolarMovrContract(withSignerIfPossible?: boolean): Contract | null {
+export function useStoneMovrContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId && SOLAR_MOVR_PAIR[chainId], IUniswapV2PairABI, withSignerIfPossible)
+  return useContract(chainId && STONE_MOVR_PAIR[chainId], IUniswapV2PairABI, withSignerIfPossible)
 }
 
 export function useMovrUsdcContract(withSignerIfPossible?: boolean): Contract | null {
@@ -223,7 +223,7 @@ export function useBNBPairContract(withSignerIfPossible?: boolean): Contract | n
 
 export function useSolarContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId && SOLAR_ADDRESS[chainId], IUniswapV2PairABI, withSignerIfPossible)
+  return useContract(chainId && STONE_ADDRESS[chainId], IUniswapV2PairABI, withSignerIfPossible)
 }
 
 export function useMasterChefV2Contract(withSignerIfPossible?: boolean): Contract | null {

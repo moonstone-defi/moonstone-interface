@@ -10,10 +10,10 @@ export default async function handler(req, res) {
 
   const movrUSDCPrice = (Number(movrUSDCReserves.reserve1) / Number(movrUSDCReserves.reserve0) ) * 1e12
 
-  let solarMovrContract = new web3.eth.Contract(IUniswapV2PairABI, '0x7eDA899b3522683636746a2f3a7814e6fFca75e1')
-  const solarMovrReserves = await solarMovrContract.methods.getReserves().call()
+  let stoneMovrContract = new web3.eth.Contract(IUniswapV2PairABI, '0x4eBc0aDF587D8E61c7a97387c5B6b21DaD1234Ad')
+  const stoneMovrReserves = await stoneMovrContract.methods.getReserves().call()
 
-  const solarMovrPrice = Number(solarMovrReserves.reserve1) / Number(solarMovrReserves.reserve0)
+  const stoneMovrPrice = Number(stoneMovrReserves.reserve0) / Number(stoneMovrReserves.reserve1)
 
   let ribMovrContract = new web3.eth.Contract(IUniswapV2PairABI, '0x0acDB54E610dAbC82b8FA454b21AD425ae460DF9')
   const ribMovrReserves = await ribMovrContract.methods.getReserves().call()
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
   let ret = {}
   ret['movr'] = movrUSDCPrice
-  ret['solar'] = solarMovrPrice * movrUSDCPrice
+  ret['stone'] = stoneMovrPrice * movrUSDCPrice
   ret['rib'] = ribMovrPrice * movrUSDCPrice
   ret['usdc'] = 1
 

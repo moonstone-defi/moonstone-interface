@@ -1,4 +1,4 @@
-import { useActiveWeb3React, useSolarDistributorContract, useSolarVaultContract } from '../../hooks'
+import { useActiveWeb3React, useStoneMasterchefContract, useSolarVaultContract } from '../../hooks'
 
 import { BigNumber } from '@ethersproject/bignumber'
 import { Zero } from '@ethersproject/constants'

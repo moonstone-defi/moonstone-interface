@@ -28,6 +28,10 @@ module.exports = withBundleAnalyzer(
       faucetGas: process.env.FAUCET_GAS_PRICE_GWEI,
       faucetTimeLimit: process.env.FAUCET_TIME_LIMIT_MIN,
       faunadbSecret: process.env.FAUNADB_SECRET,
+      analyticsDb: process.env.ANALYTICS_DB,
+      analyticsDbHost: process.env.ANALYTICS_DB_HOST,
+      analyticsDbUser: process.env.ANALYTICS_DB_USER,
+      analyticsDbPassword: process.env.ANALYTICS_DB_PASSWORD
     },
     i18n: {
       locales,
@@ -37,7 +41,7 @@ module.exports = withBundleAnalyzer(
       return [
         {
           source: '/',
-          destination: '/exchange/swap',
+          destination: '/farm',
           permanent: true,
         },
       ]

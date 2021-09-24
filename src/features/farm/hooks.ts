@@ -1,13 +1,13 @@
-import { CurrencyAmount, JSBI, MASTERCHEF_ADDRESS } from '../../sdk'
+import { CurrencyAmount, JSBI, } from '../../sdk'
 import { Chef } from './enum'
-import { SOLAR, MASTERCHEF_V2_ADDRESS, MINICHEF_ADDRESS } from '../../constants'
+import { STONE, MASTERCHEF_ADDRESS, MINICHEF_ADDRESS } from '../../constants'
 import { NEVER_RELOAD, useSingleCallResult, useSingleContractMultipleData } from '../../state/multicall/hooks'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
-  useSolarDistributorContract,
+  useStoneMasterchefContract,
   useBNBPairContract,
-  useSolarMovrContract,
-  useSolarVaultContract,
+  useStoneMovrContract,
+  // useStoneVaultContract,
   useMovrUsdcContract,
   useRibMovrContract,
 } from '../../hooks'
@@ -21,14 +21,14 @@ import { useVaultInfo, useVaults } from '../vault/hooks'
 const { default: axios } = require('axios')
 
 export function useChefContract(chef: Chef) {
-  const solarDistributorContract = useSolarDistributorContract()
+  const stoneMasterchefContract = useStoneMasterchefContract()
   const contracts = useMemo(
     () => ({
-      [Chef.MASTERCHEF]: solarDistributorContract,
-      [Chef.MASTERCHEF_V2]: solarDistributorContract,
-      [Chef.MINICHEF]: solarDistributorContract,
+      [Chef.MASTERCHEF]: stoneMasterchefContract,
+      [Chef.MASTERCHEF_V2]: stoneMasterchefContract,
+      [Chef.MINICHEF]: stoneMasterchefContract,
     }),
-    [solarDistributorContract]
+    [stoneMasterchefContract]
   )
   return useMemo(() => {
     return contracts[chef]
@@ -36,14 +36,14 @@ export function useChefContract(chef: Chef) {
 }
 
 export function useChefContracts(chefs: Chef[]) {
-  const solarDistributorContract = useSolarDistributorContract()
+  const stoneMasterchefContract = useStoneMasterchefContract()
   const contracts = useMemo(
     () => ({
-      [Chef.MASTERCHEF]: solarDistributorContract,
-      [Chef.MASTERCHEF_V2]: solarDistributorContract,
-      [Chef.MINICHEF]: solarDistributorContract,
+      [Chef.MASTERCHEF]: stoneMasterchefContract,
+      [Chef.MASTERCHEF_V2]: stoneMasterchefContract,
+      [Chef.MINICHEF]: stoneMasterchefContract,
     }),
-    [solarDistributorContract]
+    [stoneMasterchefContract]
   )
   return chefs.map((chef) => contracts[chef])
 }
@@ -74,7 +74,7 @@ export function useUserInfo(farm, token) {
   }
 }
 
-export function usePendingSolar(farm) {
+export function usePendingStone(farm) {
   const { account, chainId } = useActiveWeb3React()
 
   const contract = useChefContract(0)
@@ -86,13 +86,13 @@ export function usePendingSolar(farm) {
     return [String(farm.id), String(account)]
   }, [farm, account])
 
-  const result = useSingleCallResult(args ? contract : null, 'pendingSolar', args)?.result
+  const result = useSingleCallResult(args ? contract : null, 'pendingStone', args)?.result
 
   const value = result?.[0]
 
   const amount = value ? JSBI.BigInt(value.toString()) : undefined
 
-  return amount ? CurrencyAmount.fromRawAmount(SOLAR[chainId], amount) : undefined
+  return amount ? CurrencyAmount.fromRawAmount(STONE[chainId], amount) : undefined
 }
 
 export function usePendingToken(farm, contract) {
@@ -114,7 +114,7 @@ export function usePendingToken(farm, contract) {
   return useMemo(() => pendingTokens, [pendingTokens])
 }
 
-export function useSolarPositions(contract?: Contract | null) {
+export function useStonePositions(contract?: Contract | null) {
   const { account } = useActiveWeb3React()
 
   const numberOfPools = useSingleCallResult(contract ? contract : null, 'poolLength', undefined, NEVER_RELOAD)
@@ -127,31 +127,31 @@ export function useSolarPositions(contract?: Contract | null) {
     return [...Array(numberOfPools.toNumber()).keys()].map((pid) => [String(pid), String(account)])
   }, [numberOfPools, account])
 
-  const pendingSolar = useSingleContractMultipleData(args ? contract : null, 'pendingSolar', args)
+  const pendingStone = useSingleContractMultipleData(args ? contract : null, 'pendingStone', args)
 
   const userInfo = useSingleContractMultipleData(args ? contract : null, 'userInfo', args)
 
   return useMemo(() => {
-    if (!pendingSolar || !userInfo) {
+    if (!pendingStone || !userInfo) {
       return []
     }
-    return zip(pendingSolar, userInfo)
+    return zip(pendingStone, userInfo)
       .map((data, i) => ({
         id: args[i][0],
-        pendingSolar: data[0].result?.[0] || Zero,
+        pendingStone: data[0].result?.[0] || Zero,
         amount: data[1].result?.[0] || Zero,
       }))
-      .filter(({ pendingSolar, amount }) => {
-        return (pendingSolar && !pendingSolar.isZero()) || (amount && !amount.isZero())
+      .filter(({ pendingStone, amount }) => {
+        return (pendingStone && !pendingStone.isZero()) || (amount && !amount.isZero())
       })
-  }, [args, pendingSolar, userInfo])
+  }, [args, pendingStone, userInfo])
 }
 
 export function usePositions() {
-  return useSolarPositions(useSolarDistributorContract())
+  return useStonePositions(useStoneMasterchefContract())
 }
 
-export function useSolarFarms(contract?: Contract | null) {
+export function useStoneFarms(contract?: Contract | null) {
   const { account } = useActiveWeb3React()
 
   const numberOfPools = useSingleCallResult(contract ? contract : null, 'poolLength', undefined, NEVER_RELOAD)
@@ -175,7 +175,7 @@ export function useSolarFarms(contract?: Contract | null) {
       lpToken: data[0].result?.['lpToken'] || '',
       allocPoint: data[0].result?.['allocPoint'] || '',
       lastRewardBlock: data[0].result?.['lastRewardBlock'] || '',
-      accSolarPerShare: data[0].result?.['accSolarPerShare'] || '',
+      accStonePerShare: data[0].result?.['accStonePerShare'] || '',
       depositFeeBP: data[0].result?.['depositFeeBP'] || '',
       harvestInterval: data[0].result?.['harvestInterval'] || '',
       totalLp: data[0].result?.['totalLp'] || '',
@@ -284,22 +284,22 @@ export function useTokenInfo(tokenContract?: Contract | null) {
 }
 
 export function useFarms() {
-  return useSolarFarms(useSolarDistributorContract())
+  return useStoneFarms(useStoneMasterchefContract())
 }
 
 export function usePricesApi() {
   const movrPrice = useMovrPrice()
-  const solarPrice = useSolarPrice()
+  const stonePrice = useStonePrice()
   const ribPrice = useRibPrice()
 
   return useMemo(() => {
     return {
       movr: movrPrice,
-      solar: solarPrice * movrPrice,
+      stone: stonePrice * movrPrice,
       rib: ribPrice * movrPrice,
       usdc: 1,
     }
-  }, [movrPrice, ribPrice, solarPrice])
+  }, [movrPrice, ribPrice, stonePrice])
 }
 
 export function useFarmsApi() {
@@ -312,9 +312,18 @@ export function useMovrPrice() {
   return usePrice(useMovrUsdcContract(), 12)
 }
 
-export function useSolarPrice() {
+export function useStonePrice() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  return usePrice(useSolarMovrContract())
+  // had to do it manualyl for some reason the original reports wrong price
+  const contract = useStoneMovrContract()
+  const result = useSingleCallResult(contract, 'getReserves', undefined, NEVER_RELOAD)?.result
+  const _reserve1 = result?.['reserve1']
+  const _reserve0 = result?.['reserve0']
+  const r0 = Number(_reserve0)
+  const r1 = Number(_reserve1)
+  const rx = r0  / r1
+  const price = (r0 / r1) 
+  return price
 }
 
 export function useRibPrice() {
@@ -327,16 +336,16 @@ export function useBNBPrice() {
   return usePrice(useBNBPairContract())
 }
 
-export function useSolarDistributorInfo(contract) {
-  const solarPerBlock = useSingleCallResult(contract ? contract : null, 'solarPerBlock', undefined, NEVER_RELOAD)
+export function useStoneMasterchefInfo(contract) {
+  const stonePerBlock = useSingleCallResult(contract ? contract : null, 'stonePerBlock', undefined, NEVER_RELOAD)
     ?.result?.[0]
 
   const totalAllocPoint = useSingleCallResult(contract ? contract : null, 'totalAllocPoint', undefined, NEVER_RELOAD)
     ?.result?.[0]
 
-  return useMemo(() => ({ solarPerBlock, totalAllocPoint }), [solarPerBlock, totalAllocPoint])
+  return useMemo(() => ({ stonePerBlock, totalAllocPoint }), [stonePerBlock, totalAllocPoint])
 }
 
 export function useDistributorInfo() {
-  return useSolarDistributorInfo(useSolarDistributorContract())
+  return useStoneMasterchefInfo(useStoneMasterchefContract())
 }

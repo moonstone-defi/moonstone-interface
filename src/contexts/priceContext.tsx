@@ -3,7 +3,7 @@ import { usePricesApi } from '../features/farm/hooks'
 
 export const PriceContext = React.createContext({
   movr: 0,
-  solar: 0,
+  stone: 0,
   rib: 0,
 })
 

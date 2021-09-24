@@ -1,12 +1,12 @@
 import { CurrencyAmount, JSBI } from '../../sdk'
 import { Chef } from './enum'
-import { SOLAR } from '../../constants'
+import { STONE } from '../../constants'
 import { NEVER_RELOAD, useSingleCallResult, useSingleContractMultipleData } from '../../state/multicall/hooks'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
-  useSolarDistributorContract,
+  useStoneMasterchefContract,
   useBNBPairContract,
-  useSolarMovrContract,
+  useStoneMovrContract,
   useSolarVaultContract,
 } from '../../hooks'
 
@@ -59,13 +59,13 @@ export function usePendingSolar(farm) {
     return [String(farm.id), String(account)]
   }, [farm, account])
 
-  const result = useSingleCallResult(args ? contract : null, 'pendingSolar', args)?.result
+  const result = useSingleCallResult(args ? contract : null, 'pendingStone', args)?.result
 
   const value = result?.[0]
 
   const amount = value ? JSBI.BigInt(value.toString()) : undefined
 
-  return amount ? CurrencyAmount.fromRawAmount(SOLAR[chainId], amount) : undefined
+  return amount ? CurrencyAmount.fromRawAmount(STONE[chainId], amount) : undefined
 }
 
 export function usePendingToken(farm, contract) {
@@ -100,25 +100,25 @@ export function useSolarPositions(contract?: Contract | null) {
     return [...Array(numberOfPools.toNumber()).keys()].map((pid) => [String(pid), String(account)])
   }, [numberOfPools, account])
 
-  const pendingSolar = useSingleContractMultipleData(args ? contract : null, 'pendingSolar', args)
+  const pendingStone = useSingleContractMultipleData(args ? contract : null, 'pendingStone', args)
   const userInfo = useSingleContractMultipleData(args ? contract : null, 'userInfo', args)
   const userLockedUntil = useSingleContractMultipleData(args ? contract : null, 'userLockedUntil', args)
 
   return useMemo(() => {
-    if (!pendingSolar || !userInfo || !userLockedUntil) {
+    if (!pendingStone || !userInfo || !userLockedUntil) {
       return []
     }
-    return zip(pendingSolar, userInfo, userLockedUntil)
+    return zip(pendingStone, userInfo, userLockedUntil)
       .map((data, i) => ({
         id: args[i][0],
-        pendingSolar: data[0].result?.[0] || Zero,
+        pendingStone: data[0].result?.[0] || Zero,
         amount: data[1].result?.[0] || Zero,
         lockedUntil: data[2].result?.[0] || Zero,
       }))
-      .filter(({ pendingSolar, amount }) => {
-        return (pendingSolar && !pendingSolar.isZero()) || (amount && !amount.isZero())
+      .filter(({ pendingStone, amount }) => {
+        return (pendingStone && !pendingStone.isZero()) || (amount && !amount.isZero())
       })
-  }, [args, pendingSolar, userInfo, userLockedUntil])
+  }, [args, pendingStone, userInfo, userLockedUntil])
 }
 
 export function usePositions() {
@@ -214,9 +214,9 @@ export function useTokenInfo(tokenContract?: Contract | null) {
 
   const _burnt = useSingleCallResult(
     tokenContract ? tokenContract : null,
-    'balanceOf',
-    ['0x000000000000000000000000000000000000dEaD'],
-    NEVER_RELOAD
+    'totalBurned',
+/*     ['0x000000000000000000000000000000000000dEaD'],
+ */    NEVER_RELOAD
   )?.result?.[0]
 
   const totalSupply = _totalSupply ? JSBI.BigInt(_totalSupply.toString()) : JSBI.BigInt(0)
@@ -257,24 +257,19 @@ export function useFarmsApi() {
   return useAsync(usePriceApi, true)
 }
 
-export function useSolarPrice() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  return usePrice(useSolarMovrContract())
-}
-
 export function useBNBPrice() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   return usePrice(useBNBPairContract())
 }
 
 export function useVaultInfo(contract) {
-  const solarPerBlock = useSingleCallResult(contract ? contract : null, 'solarPerBlock', undefined, NEVER_RELOAD)
+  const stonePerBlock = useSingleCallResult(contract ? contract : null, 'stonePerBlock', undefined, NEVER_RELOAD)
     ?.result?.[0]
 
   const totalAllocPoint = useSingleCallResult(contract ? contract : null, 'totalAllocPoint', undefined, NEVER_RELOAD)
     ?.result?.[0]
 
-  return useMemo(() => ({ solarPerBlock, totalAllocPoint }), [solarPerBlock, totalAllocPoint])
+  return useMemo(() => ({ stonePerBlock, totalAllocPoint }), [stonePerBlock, totalAllocPoint])
 }
 
 export function useSolarVaultInfo() {

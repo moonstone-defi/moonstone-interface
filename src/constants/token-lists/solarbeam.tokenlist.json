@@ -11,6 +11,13 @@
   "keywords": ["sushiswap", "default"],
   "tokens": [
     {
+      "name": "Moonstone Token",
+      "address": "0xFdA2c94589f0A24BaD5f4b900929119f6269c41B",
+      "symbol": "STONE",
+      "decimals": 18,
+      "chainId": 1285,
+      "logoURI": ""
+    },{
       "name": "Solarbeam Token",
       "address": "0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B",
       "symbol": "SOLAR",

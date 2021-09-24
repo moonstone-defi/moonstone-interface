@@ -51,7 +51,7 @@ function AppBar(): JSX.Element {
                           {i18n._(t`Farm`)}
                         </a>
                       </NavLink>
-                      <NavLink href={'/vaults'}>
+                     {/*  <NavLink href={'/vaults'}>
                         <a
                           id={`vaults-nav-link`}
                           className="p-2 text-base text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
@@ -79,7 +79,7 @@ function AppBar(): JSX.Element {
                         >
                           {i18n._(t`NFT Launchpad`)}
                         </a>
-                      </NavLink>
+                      </NavLink> */}
                     </div>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ function AppBar(): JSX.Element {
                     )}
                     {chainId && [ChainId.MOONRIVER].includes(chainId) && (
                       <div className="w-auto flex items-center rounded mr-1 bg-dark-800 shadow-sm text-primary text-xs hover:bg-dark-700 whitespace-nowrap text-xs font-bold cursor-pointer select-none pointer-events-auto">
-                        <TokenStats token="SOLAR" />
+                        <TokenStats token="STONE" />
                       </div>
                     )}
                     <div className="w-auto flex items-center rounded bg-transparent shadow-sm text-primary text-xs hover:bg-dark-900 whitespace-nowrap text-xs font-bold cursor-pointer select-none pointer-events-auto">
@@ -194,6 +194,11 @@ function AppBar(): JSX.Element {
                 <Link href={'/nft/launchpad'}>
                   <a className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap">
                     {i18n._(t`NFT Launchpad`)}
+                  </a>
+                </Link>
+                <Link href={'/analytics/home'}>
+                  <a className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap">
+                    {i18n._(t`Analytics`)}
                   </a>
                 </Link>
               </div>

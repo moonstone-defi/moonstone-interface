@@ -35,7 +35,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
+  background-color: #111;
   color: var(--text-primary);
 }
 
@@ -79,7 +79,7 @@ input:focus {
   border: 3px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
   border-radius: 9999px;
-  background-color: #bfbfbf8a;
+  background-color: #ddd;
 } 
 
 .rdtPicker {
@@ -92,7 +92,7 @@ input:focus {
 
 .rdtPicker td.rdtActive, .rdtPicker td.rdtActive:hover{
   background-color: transparent !important;
-  color: #ffc000 !important;
+  color: #ddd !important;
 }
 
 .rdtPicker td.rdtDay:hover, .rdtPicker td.rdtHour:hover, .rdtPicker td.rdtMinute:hover, .rdtPicker td.rdtSecond:hover {
@@ -114,7 +114,7 @@ input:focus {
 }
 
 .rdtPicker td.rdtToday:before{  
-  border-bottom: 7px solid #ffc000 !important;
+  border-bottom: 7px solid #ddd !important;
 }
 
 .rdtCounter .rdtBtn:hover {
@@ -147,11 +147,11 @@ input:focus {
 }
 
 .rdtPicker tfoot {
-  border-top: 1px solid #7b6532 !important;
+  border-top: 1px solid #ddd !important;
 }
 
 .rdtPicker thead tr:first-child th {
-  border-bottom: 1px solid #7b6532 !important;
+  border-bottom: 1px solid #ddd !important;
 }
 
 td.rdtMonth:hover, td.rdtYear:hover {

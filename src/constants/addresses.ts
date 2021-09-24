@@ -11,20 +11,20 @@ export const LOCKER_ADDRESS: AddressMap = {
   [ChainId.MOONRIVER]: '0xA9Ead5d7C9D0B59A2900824A125F3913009fD638',
 }
 
-export const SOLAR_DISTRIBUTOR_ADDRESS: AddressMap = {
+export const MASTERCHEF_ADDRESS: AddressMap = {
   [ChainId.ROPSTEN]: '',
   [ChainId.BSC]: '',
-  [ChainId.MOONRIVER]: '0xf03b75831397D4695a6b9dDdEEA0E578faa30907',
+  [ChainId.MOONRIVER]: '0x84609555C297C607f3b5dBB47E11F7112528c61F', // moonstone farm
 }
 
-export const SOLAR_VAULT_ADDRESS: AddressMap = {
+export const STONE_VAULT_ADDRESS: AddressMap = {
   [ChainId.MOONRIVER]: '0x7e6E03822D0077F3C417D33caeAc900Fc2645679',
 }
 
-export const SOLAR_MOVR_PAIR: AddressMap = {
+export const STONE_MOVR_PAIR: AddressMap = {
   [ChainId.ROPSTEN]: '',
   [ChainId.BSC]: '',
-  [ChainId.MOONRIVER]: '0x7eDA899b3522683636746a2f3a7814e6fFca75e1',
+  [ChainId.MOONRIVER]: '0x4eBc0aDF587D8E61c7a97387c5B6b21DaD1234Ad',
 }
 
 export const MOVR_USDC_PAIR: AddressMap = {
@@ -53,10 +53,6 @@ export const MINICHEF_ADDRESS: AddressMap = {
   [ChainId.MATIC]: '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F',
   [ChainId.XDAI]: '0xdDCbf776dF3dE60163066A5ddDF2277cB445E0F3',
   [ChainId.HARMONY]: '0x67dA5f2FfaDDfF067AB9d5F025F8810634d84287',
-}
-
-export const MASTERCHEF_V2_ADDRESS: AddressMap = {
-  [ChainId.MAINNET]: '0xEF0881eC094552b2e128Cf945EF17a6752B4Ec5d',
 }
 
 export const ZAPPER_ADDRESS: AddressMap = {

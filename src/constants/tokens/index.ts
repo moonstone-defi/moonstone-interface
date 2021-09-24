@@ -53,7 +53,7 @@ export const OKEX: { [key: string]: Token } = {
 export const MOONRIVER: { [key: string]: Token } = {
   DAI: new Token(ChainId.MOONRIVER, '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844', 18, 'DAI', 'Dai Stablecoin'),
   USDC: new Token(ChainId.MOONRIVER, '0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D', 6, 'USDC', 'USD Coin'),
-  SOLAR: new Token(ChainId.MOONRIVER, '0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B', 18, 'SOLAR', 'Solarbeam Token'),
+  STONE: new Token(ChainId.MOONRIVER, '0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B', 18, 'STONE', 'Moonstone Token'),
   BUSD: new Token(ChainId.MOONRIVER, '0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818', 18, 'BUSD', 'Binance-Peg BUSD Token'),
 }
 
@@ -192,7 +192,7 @@ type ChainTokenMap = {
   readonly [chainId in ChainId]?: Token
 }
 
-export const SOLAR_ADDRESS = {
+export const STONE_ADDRESS = {
   [ChainId.MAINNET]: '',
   [ChainId.ROPSTEN]: '',
   [ChainId.RINKEBY]: '',
@@ -219,11 +219,11 @@ export const SOLAR_ADDRESS = {
   [ChainId.CELO]: '',
   [ChainId.PALM]: '',
   [ChainId.PALM_TESTNET]: '',
-  [ChainId.MOONRIVER]: '0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B',
+  [ChainId.MOONRIVER]: '0xFdA2c94589f0A24BaD5f4b900929119f6269c41B',
 }
 
-export const SOLAR: ChainTokenMap = {
-  [ChainId.MOONRIVER]: new Token(ChainId.MOONRIVER, SOLAR_ADDRESS[ChainId.MOONRIVER], 18, 'SOLAR', 'Solarbeam Token'),
+export const STONE: ChainTokenMap = {
+  [ChainId.MOONRIVER]: new Token(ChainId.MOONRIVER, STONE_ADDRESS[ChainId.MOONRIVER], 18, 'STONE', 'Moonstone Token'),
 }
 
 export const WETH9_EXTENDED: { [chainId: number]: Token } = {
