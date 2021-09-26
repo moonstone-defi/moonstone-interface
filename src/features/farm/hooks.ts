@@ -74,7 +74,7 @@ export function useUserInfo(farm, token) {
   }
 }
 
-export function usePendingStone(farm) {
+export function usependingSTONE(farm) {
   const { account, chainId } = useActiveWeb3React()
 
   const contract = useChefContract(0)
@@ -86,7 +86,7 @@ export function usePendingStone(farm) {
     return [String(farm.id), String(account)]
   }, [farm, account])
 
-  const result = useSingleCallResult(args ? contract : null, 'pendingStone', args)?.result
+  const result = useSingleCallResult(args ? contract : null, 'pendingSTONE', args)?.result
 
   const value = result?.[0]
 
@@ -127,24 +127,24 @@ export function useStonePositions(contract?: Contract | null) {
     return [...Array(numberOfPools.toNumber()).keys()].map((pid) => [String(pid), String(account)])
   }, [numberOfPools, account])
 
-  const pendingStone = useSingleContractMultipleData(args ? contract : null, 'pendingStone', args)
+  const pendingSTONE = useSingleContractMultipleData(args ? contract : null, 'pendingSTONE', args)
 
   const userInfo = useSingleContractMultipleData(args ? contract : null, 'userInfo', args)
 
   return useMemo(() => {
-    if (!pendingStone || !userInfo) {
+    if (!pendingSTONE || !userInfo) {
       return []
     }
-    return zip(pendingStone, userInfo)
+    return zip(pendingSTONE, userInfo)
       .map((data, i) => ({
         id: args[i][0],
-        pendingStone: data[0].result?.[0] || Zero,
+        pendingSTONE: data[0].result?.[0] || Zero,
         amount: data[1].result?.[0] || Zero,
       }))
-      .filter(({ pendingStone, amount }) => {
-        return (pendingStone && !pendingStone.isZero()) || (amount && !amount.isZero())
+      .filter(({ pendingSTONE, amount }) => {
+        return (pendingSTONE && !pendingSTONE.isZero()) || (amount && !amount.isZero())
       })
-  }, [args, pendingStone, userInfo])
+  }, [args, pendingSTONE, userInfo])
 }
 
 export function usePositions() {

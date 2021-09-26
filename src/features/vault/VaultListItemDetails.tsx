@@ -49,7 +49,7 @@ const VaultListItem = ({ farm }) => {
   // TODO: Replace these
   const { amount, nextHarvestUntil, userLockedUntil } = useUserInfo(farm, liquidityToken)
 
-  const pendingStone = usePendingSolar(farm)
+  const pendingSTONE = usePendingSolar(farm)
 
   const typedDepositValue = tryParseAmount(depositValue, liquidityToken)
   const typedWithdrawValue = tryParseAmount(withdrawValue, liquidityToken)
@@ -278,7 +278,7 @@ const VaultListItem = ({ farm }) => {
               </Button>
             </div>
           </div>
-          {pendingStone && pendingStone.greaterThan(ZERO) && (
+          {pendingSTONE && pendingSTONE.greaterThan(ZERO) && (
             <div className="px-4 pb-4">
               <Button
                 color="gradient"
@@ -315,7 +315,7 @@ const VaultListItem = ({ farm }) => {
                   }
                 }}
               >
-                {i18n._(t`Harvest ${formatNumber(pendingStone.toFixed(18))} STONE`)}
+                {i18n._(t`Harvest ${formatNumber(pendingSTONE.toFixed(18))} STONE`)}
               </Button>
             </div>
           )}

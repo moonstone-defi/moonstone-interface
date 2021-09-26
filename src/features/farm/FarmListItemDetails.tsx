@@ -3,7 +3,7 @@ import { ChainId, Token, ZERO } from '../../sdk'
 import { Chef, PairType } from './enum'
 import { Disclosure, Transition } from '@headlessui/react'
 import React, { useState } from 'react'
-import { usePendingStone, useUserInfo } from './hooks'
+import { usependingSTONE, useUserInfo } from './hooks'
 
 import Button from '../../components/Button'
 import Dots from '../../components/Dots'
@@ -47,8 +47,8 @@ const FarmListItem = ({ farm }) => {
   // TODO: Replace these
   const { amount, nextHarvestUntil } = useUserInfo(farm, liquidityToken)
 
-  const pendingStone = usePendingStone(farm)
-  console.log('pendingStone',pendingStone)
+  const pendingSTONE = usependingSTONE(farm)
+  console.log('pendingSTONE',pendingSTONE)
   const reward = usePendingReward(farm)
 
   const typedDepositValue = tryParseAmount(depositValue, liquidityToken)
@@ -221,7 +221,7 @@ const FarmListItem = ({ farm }) => {
             </Button>
           </div>
         </div>
-        {pendingStone && pendingStone.greaterThan(ZERO) && (
+        {pendingSTONE && pendingSTONE.greaterThan(ZERO) && (
           <div className="px-4 pb-4">
             <Button
               color="gradient"
@@ -245,7 +245,7 @@ const FarmListItem = ({ farm }) => {
                 setPendingTx(false)
               }}
             >
-              {i18n._(t`Harvest ${formatNumber(pendingStone.toFixed(18))} STONE`)}
+              {i18n._(t`Harvest ${formatNumber(pendingSTONE.toFixed(18))} STONE`)}
             </Button>
           </div>
         )}

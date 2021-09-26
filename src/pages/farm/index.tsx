@@ -163,7 +163,7 @@ export default function Farm(): JSX.Element {
   })
 
   const allStaked = positions.reduce((previousValue, currentValue) => {
-    return previousValue + (currentValue.pendingStone / 1e18) * stonePrice
+    return previousValue + (currentValue.pendingSTONE / 1e18) * stonePrice
   }, 0)
 
   const valueStaked = positions.reduce((previousValue, currentValue) => {
