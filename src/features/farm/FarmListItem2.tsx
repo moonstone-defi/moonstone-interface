@@ -58,7 +58,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     farm.stonePrice = stonePrice
 
     const totalLp = useTVL()
-    const tvl =  0 //Number(totalLp[farm.id].tvl ) * farm.lpPrice
+    const tvl =  Number(totalLp[farm.id].tvl ) * farm.lpPrice
 
     return tvl
   }
