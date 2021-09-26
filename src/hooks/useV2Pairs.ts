@@ -106,7 +106,6 @@ export function useVaultTVL(): TVLInfo[] {
         token.id.toLowerCase() == STONE_ADDRESS[chainId].toLowerCase() ||
         token.symbol == 'WMOVR' ||
         token.symbol == 'MOVR' ||
-        token.symbol == 'RIB' ||
         token.symbol == 'USDC' ||
         token.symbol == 'BUSD'
       )
@@ -133,9 +132,9 @@ export function useVaultTVL(): TVLInfo[] {
 
       let { token0, token1, lpToken } = lpPools[i]
 
-      token0 = token0.id.toLowerCase() < token1.id.toLowerCase() ? token0 : token1
+     /*  token0 = token0.id.toLowerCase() < token1.id.toLowerCase() ? token0 : token1
       token1 = token0.id.toLowerCase() < token1.id.toLowerCase() ? token1 : token0
-
+ */
       if (loading) return { lpToken, tvl: 0, lpPrice: 0, id: '0' }
       if (!reserves) return { lpToken, tvl: 0, lpPrice: 0, id: '0' }
 
@@ -154,9 +153,9 @@ export function useVaultTVL(): TVLInfo[] {
       let lpTotalPrice = Number(token0total + token1total)
 
       if (isKnownToken(token0)) {
-        lpTotalPrice = token0total * 2
+        lpTotalPrice = token0total // * 2
       } else if (isKnownToken(token1)) {
-        lpTotalPrice = token1total * 2
+        lpTotalPrice = token1total // * 2
       }
 
       const lpPrice = lpTotalPrice / (lpTotalSupply / 10 ** 18)
@@ -208,7 +207,7 @@ export function useVaultTVL(): TVLInfo[] {
   ])
 }
 
-export function useTVL(): TVLInfo[] {
+export function useTVL(pid?: number): TVLInfo[] {
   const { chainId } = useActiveWeb3React()
   const priceData = useContext(PriceContext)
   const stonePrice = priceData?.['stone']
@@ -287,9 +286,9 @@ export function useTVL(): TVLInfo[] {
       let lpTotalPrice = Number(token0total + token1total)
 
       if (isKnownToken(token0)) {
-        lpTotalPrice = token0total * 2
+        lpTotalPrice = token0total // * 2
       } else if (isKnownToken(token1)) {
-        lpTotalPrice = token1total * 2
+        lpTotalPrice = token1total // * 2
       }
 
       const lpPrice = lpTotalPrice / (lpTotalSupply / 10 ** 18)

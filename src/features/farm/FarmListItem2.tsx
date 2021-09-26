@@ -6,6 +6,7 @@ import FarmListItemDetails from './FarmListItemDetails'
 import Image from '../../components/Image'
 import React, { useContext, useState } from 'react'
 import { useCurrency } from '../../hooks/Tokens'
+import { useTokenBalance } from '../../state/wallet/hooks'
 import { useV2PairsWithPrice } from '../../hooks/useV2Pairs'
 import { STONE_ADDRESS } from '../../constants/tokens'
 import { useActiveWeb3React } from '../../hooks'
@@ -20,6 +21,12 @@ import { PriceContext } from '../../contexts/priceContext'
 import { Info } from 'react-feather'
 import Link from 'next/link'
 
+//
+import ERC20_ABI from '../../constants/abis/erc20.json'
+import { Interface } from '@ethersproject/abi'
+import { Contract } from '@ethersproject/contracts'
+import { useTVL } from '../../hooks/useV2Pairs'
+
 const FarmListItem2 = ({ farm, ...rest }) => {
   const { chainId } = useActiveWeb3React()
 
@@ -30,30 +37,29 @@ const FarmListItem2 = ({ farm, ...rest }) => {
 
   const stonePrice = priceData?.['stone']
   const movrPrice = priceData?.['movr']
-  const ribPrice = priceData?.['rib']
 
   const [selectedFarm, setSelectedFarm] = useState<string>(null)
 
   let [data] = useV2PairsWithPrice([[token0, token1]])
   let [state, pair, pairPrice] = data
 
-  function getTvl() {
+  function   getTvl  () {
     let lpPrice = 0
     let decimals = 18
     if (farm.lpToken.toLowerCase() == STONE_ADDRESS[chainId].toLowerCase()) {
       lpPrice = stonePrice
-      decimals = 18 // farm.pair.token0?.decimals
+      decimals = farm.pair.token0?.decimals
     } else if (farm.lpToken.toLowerCase() == WNATIVE[chainId].toLowerCase()) {
       lpPrice = movrPrice
-    } else if (farm.lpToken.toLowerCase() == '0xbD90A6125a84E5C512129D622a75CDDE176aDE5E'.toLowerCase()) {
-      lpPrice = ribPrice
     } else {
       lpPrice = pairPrice
     }
-    console.log("lpPrice", lpPrice, farm)
     farm.lpPrice = lpPrice
     farm.stonePrice = stonePrice
-    const tvl = Number(farm.totalLp / 10 ** decimals) * lpPrice
+
+    const totalLp = useTVL()
+    const tvl =  0 //Number(totalLp[farm.id].tvl ) * farm.lpPrice
+
     return tvl
   }
 
@@ -95,7 +101,8 @@ const FarmListItem2 = ({ farm, ...rest }) => {
                     <div>
                       <span className="flex font-bold">{farm?.pair?.token0?.symbol}</span>
                       {token1 && <span className="flex font-bold">{farm?.pair?.token1?.symbol}</span>}
-                      {/* {!token1 && token0?.symbol == 'STONE' && (
+                      {/*UNCOMMENTED TO ALLOW SINGLE STAKING IN FARM ELSE ONLY VAULTS
+                      {!token1 && token0?.symbol == 'STONE' && (
                         <div className="flex flex-col">
                           <span className="text-emphasis underline hover:text-yellow">Unstake</span>
                           <Link href="/vaults">
@@ -143,7 +150,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
                       <Info />
                     </IconWrapper>
                     {/* {formatPercent(farm?.roiPerYear || 7508 * 100)} */}
-                    {roiPerYear > 1000000 ? '100000000%+' : formatPercent(roiPerYear * 100)}
+                    {roiPerYear > 0 ? 'NaN+' : formatPercent(roiPerYear * 100)}
                   </div>
                   <div className="text-xs text-right md:text-base text-secondary">{i18n._(t`annualized`)}</div>
                 </div>

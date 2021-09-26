@@ -94,7 +94,7 @@ const FarmListItem = ({ farm }) => {
                   variant="outlined"
                   color="light-green"
                   size="xs"
-                  disabled={farm?.id === '1'}
+                
                   onClick={() => {
                     if (!balance.equalTo(ZERO)) {
                       if (liquidityToken?.symbol == 'STONE') {
@@ -133,7 +133,7 @@ const FarmListItem = ({ farm }) => {
                 size="sm"
                 variant="outlined"
                 color="gradient"
-                disabled={pendingTx || !typedDepositValue || balance.lessThan(typedDepositValue) || farm?.id === '1'}
+                disabled={pendingTx || !typedDepositValue || balance.lessThan(typedDepositValue) }
                 onClick={async () => {
                   setPendingTx(true)
                   try {
@@ -153,7 +153,7 @@ const FarmListItem = ({ farm }) => {
                   setPendingTx(false)
                 }}
               >
-                {i18n._(t`Stake`)}
+                {i18n._(t`Deposit`)}
               </Button>
             )}
           </div>
@@ -216,7 +216,7 @@ const FarmListItem = ({ farm }) => {
                 setPendingTx(false)
               }}
             >
-              {i18n._(t`Unstake`)}
+              {i18n._(t`Withdraw`)}
             </Button>
           </div>
         </div>

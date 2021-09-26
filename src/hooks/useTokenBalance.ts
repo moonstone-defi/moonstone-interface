@@ -18,7 +18,7 @@ export interface BalanceProps {
 // Do NOT use this hook, use the generic wallet hook for useTokenBalance
 // Prefer import { useTokenBalance } from 'state/wallet/hooks' and use appropriately.
 
-function useTokenBalance(tokenAddress: string): BalanceProps {
+function useTokenBalance(tokenAddress: string, address?: string): BalanceProps {
   const [balance, setBalance] = useState<BalanceProps>({
     value: BigNumber.from(0),
     decimals: 18,
@@ -45,7 +45,7 @@ function useTokenBalance(tokenAddress: string): BalanceProps {
         return { value: BigNumber.from(0), decimals: 18 }
       }
     }
-    const balance = await getBalance(tokenContract, account)
+    const balance = await getBalance(tokenContract, address ? address : account)
     setBalance(balance)
   }, [account, chainId, library, tokenContract])
 
