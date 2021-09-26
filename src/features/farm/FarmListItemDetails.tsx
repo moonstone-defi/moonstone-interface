@@ -48,7 +48,6 @@ const FarmListItem = ({ farm }) => {
   const { amount, nextHarvestUntil } = useUserInfo(farm, liquidityToken)
 
   const pendingSTONE = usependingSTONE(farm)
-  console.log('pendingSTONE',pendingSTONE)
   const reward = usePendingReward(farm)
 
   const typedDepositValue = tryParseAmount(depositValue, liquidityToken)

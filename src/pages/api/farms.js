@@ -60,7 +60,7 @@ export async function farms() {
           lpContract.methods.balanceOf('0xf03b75831397D4695a6b9dDdEEA0E578faa30907').call(),
         ]
 
-        const [reserves, totalSupply, token0, token1, distributorBalance] = await Promise.all(promisesCall)
+        const [reserves, totalSupply, token0, token1, distributorBalance] = await Promise.all(3c)
         const distributorRatio = distributorBalance / totalSupply
 
         const token0info =

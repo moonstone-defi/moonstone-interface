@@ -42,7 +42,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     let decimals = 18
     if (farm.lpToken.toLowerCase() == STONE_ADDRESS[chainId].toLowerCase()) {
       lpPrice = stonePrice
-      decimals = farm.pair.token0?.decimals
+      decimals = 18 // farm.pair.token0?.decimals
     } else if (farm.lpToken.toLowerCase() == WNATIVE[chainId].toLowerCase()) {
       lpPrice = movrPrice
     } else if (farm.lpToken.toLowerCase() == '0xbD90A6125a84E5C512129D622a75CDDE176aDE5E'.toLowerCase()) {
@@ -50,11 +50,10 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     } else {
       lpPrice = pairPrice
     }
-
+    console.log("lpPrice", lpPrice, farm)
     farm.lpPrice = lpPrice
     farm.stonePrice = stonePrice
     const tvl = Number(farm.totalLp / 10 ** decimals) * lpPrice
-    console.log('tvl', tvl, farm.totalLp, lpPrice )
     return tvl
   }
 
