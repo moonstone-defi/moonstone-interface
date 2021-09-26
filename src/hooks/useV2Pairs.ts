@@ -292,7 +292,7 @@ export function useTVL(pid?: number): TVLInfo[] {
       }
 
       const lpPrice = lpTotalPrice / (lpTotalSupply / 10 ** 18)
-      const tvl = lpTotalPrice * distributorRatio
+      const tvl = 0 // lpTotalPrice * distributorRatio
 
       return {
         lpToken,
