@@ -62,8 +62,8 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     return tvl
   }
 
-  const tvl = 0 // getTvl()
-  
+  const tvl =  0 // getTvl()
+  console.log(farm.id, tvl, farm)
   const roiPerBlock = 
     farm?.rewards?.reduce((previousValue, currentValue) => {
       return previousValue + currentValue.rewardPerBlock * currentValue.rewardPrice
@@ -75,7 +75,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
   const roiPerYear = roiPerDay * 365 
 
   const { i18n } = useLingui()
-
+  console.log(farm)
   return (
     <React.Fragment>
       <Disclosure {...rest}>
@@ -99,7 +99,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
 
                   <div className={`flex flex-col justify-center ${token1 ? 'md:flex-row' : ''}`}>
                     <div>
-                      <span className="flex font-bold">{farm?.pair?.token0?.symbol}</span>
+                      <span className="flex font-bold">{farm.pair.name} {farm?.pair?.token0?.symbol}</span>
                       {token1 && <span className="flex font-bold">{farm?.pair?.token1?.symbol}</span>}
                       {/*UNCOMMENTED TO ALLOW SINGLE STAKING IN FARM ELSE ONLY VAULTS
                       {!token1 && token0?.symbol == 'STONE' && (

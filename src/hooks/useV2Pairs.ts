@@ -270,8 +270,8 @@ export function useTVL(): TVLInfo[] {
 
       let { token0, token1, lpToken } = lpPools[i]
 
-      token0 = token0.id.toLowerCase() < token1.id.toLowerCase() ? token0 : token1
-      token1 = token0.id.toLowerCase() < token1.id.toLowerCase() ? token1 : token0
+      const token0x = token0.id.toLowerCase() == "STONE" ? token0 : token1
+      const token1x = token0.id.toLowerCase() == "STONE" ? token1 : token0
 
       if (loading) return { lpToken, tvl: 0, lpPrice: 0 }
       if (!reserves) return { lpToken, tvl: 0, lpPrice: 0 }
@@ -282,23 +282,28 @@ export function useTVL(): TVLInfo[] {
 
       const farmLpRatio = farmBalance[i]?.result?.[0] / lpTotalSupply
 
-      const token0price = getPrice(token0)
-      const token1price = getPrice(token1)
+      const token0price = getPrice(token0x)
+      const token1price = getPrice(token1x)
 
-      const token0total = Number(Number(token0price * (Number(reserve0) / 10 ** token0?.decimals)).toString())
-      const token1total = Number(Number(token1price * (Number(reserve1) / 10 ** token1?.decimals)).toString())
+      const token0total = Number(Number(token0price * (Number(reserve0) / 10 ** token0x?.decimals)).toString())
+      const token1total = Number(Number(token1price * (Number(reserve1) / 10 ** token1x?.decimals)).toString())
 
       let lpTotalPrice = Number(token0total + token1total)
-
-      if (isKnownToken(token0)) {
+      
+      console.log("OK",token0x, token1x, lpTotalPrice, Number(lpTotalSupply) / 10 **18, Number(reserve0) * 10**18,Number(reserve1) * 10**18)
+      
+    /*   if (isKnownToken(token0)) {
         lpTotalPrice = token0total * 2
       } else if (isKnownToken(token1)) {
         lpTotalPrice = token1total * 2
       }
-
+ */
       const lpPrice = lpTotalPrice / (lpTotalSupply / 10 ** 18)
+      console.log("lpPrice", lpPrice, lpTotalPrice , (lpTotalSupply / 10 ** 18))
       const tvl = lpTotalPrice * farmLpRatio
-
+      console.log("TVL TEST",lpToken,
+      tvl,
+      lpPrice )
       return {
         lpToken,
         tvl,

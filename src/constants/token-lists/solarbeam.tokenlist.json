@@ -24,7 +24,7 @@
       "symbol": "MOON",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "http://moonstone.games/icon.png"
+      "logoURI": "https://moonstone.games/images/tokens/moon.png"
     },
     {
       "name": "Solarbeam Token",
@@ -32,7 +32,7 @@
       "symbol": "SOLAR",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "https://moonstone.games/images/tokens/moon.png"
+      "logoURI": "https://moonstone.games/images/tokens/solar.png"
     },
     {
       "name": "Wrapped MOVR",
