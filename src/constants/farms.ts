@@ -66,5 +66,22 @@ export const POOLS: AddressMap = {
       name: 'Moonstone LP',
       symbol: 'MSLP',
     },
+    '0xCA522d4c47f73c75bb2b8683D04eF367D8d4D05a': {
+      id: 3,
+      token0: {
+        id: '0xFdA2c94589f0A24BaD5f4b900929119f6269c41B',
+        name: 'Moonstone Token',
+        symbol: 'STONE',
+        decimals: 18,
+      },
+      token1: {
+        id: '0xB497c3E9D27Ba6b1fea9F1b941d8C79E66cfC9d6',
+        name: 'MOON',
+        symbol: 'MOON',
+        decimals: 18,
+      },
+      name: 'Moonstone LP',
+      symbol: 'MSLP',
+    },
   },
 }

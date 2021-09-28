@@ -17,13 +17,22 @@
       "decimals": 18,
       "chainId": 1285,
       "logoURI": ""
-    },{
+    },
+    {
+      "name": "MoonSwap Token",
+      "address": "0xB497c3E9D27Ba6b1fea9F1b941d8C79E66cfC9d6",
+      "symbol": "MOON",
+      "decimals": 18,
+      "chainId": 1285,
+      "logoURI": "http://moonstone.games/icon.png"
+    },
+    {
       "name": "Solarbeam Token",
       "address": "0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B",
       "symbol": "SOLAR",
       "decimals": 18,
       "chainId": 1285,
-      "logoURI": "http://moonstone.games/icon.png"
+      "logoURI": "https://moonstone.games/images/tokens/moon.png"
     },
     {
       "name": "Wrapped MOVR",

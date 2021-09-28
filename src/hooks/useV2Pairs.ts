@@ -93,10 +93,10 @@ export function useVaultTVL(): TVLInfo[] {
 
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
   const totalSupply = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'totalSupply')
-  const distributorBalance = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'balanceOf', [
+  const farmBalance = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'balanceOf', [
     STONE_VAULT_ADDRESS[ChainId.MOONRIVER],
   ])
-  const distributorBalanceSingle = useMultipleContractSingleData(singleAddresses, PAIR_INTERFACE, 'balanceOf', [
+  const farmBalanceSingle = useMultipleContractSingleData(singleAddresses, PAIR_INTERFACE, 'balanceOf', [
     STONE_VAULT_ADDRESS[ChainId.MOONRIVER],
   ])
 
@@ -142,7 +142,7 @@ export function useVaultTVL(): TVLInfo[] {
 
       const lpTotalSupply = totalSupply[i]?.result?.[0]
 
-      const distributorRatio = distributorBalance[i]?.result?.[0] / lpTotalSupply
+      const farmLpRatio = farmBalance[i]?.result?.[0] / lpTotalSupply
 
       const token0price = getPrice(token0)
       const token1price = getPrice(token1)
@@ -159,7 +159,7 @@ export function useVaultTVL(): TVLInfo[] {
       }
 
       const lpPrice = lpTotalPrice / (lpTotalSupply / 10 ** 18)
-      const tvl = lpTotalPrice * distributorRatio
+      const tvl = lpTotalPrice * farmLpRatio
 
       return {
         lpToken,
@@ -169,7 +169,7 @@ export function useVaultTVL(): TVLInfo[] {
       }
     })
 
-    const singleTVL = distributorBalanceSingle.map((result, i) => {
+    const singleTVL = farmBalanceSingle.map((result, i) => {
       const { result: balance, loading } = result
 
       const { token0, lpToken } = singlePools[i]
@@ -195,19 +195,28 @@ export function useVaultTVL(): TVLInfo[] {
     return concat(singleTVL, lpTVL)
   }, [
     results,
-    distributorBalanceSingle,
+    farmBalanceSingle,
     chainId,
     stonePrice,
     movrPrice,
     ribPrice,
     totalSupply,
-    distributorBalance,
+    farmBalance,
     lpPools,
     singlePools,
   ])
 }
 
-export function useTVL(pid?: number): TVLInfo[] {
+/////////////////////////////////////////////////////////////////////////////
+export function useFarmBalance(lpToken){
+  const farmBalance = useMultipleContractSingleData([lpToken], PAIR_INTERFACE, 'balanceOf', [
+    MASTERCHEF_ADDRESS[ChainId.MOONRIVER],
+  ])
+  return Number(farmBalance[0].result)
+}
+
+////////////////7
+export function useTVL(): TVLInfo[] {
   const { chainId } = useActiveWeb3React()
   const priceData = useContext(PriceContext)
   const stonePrice = priceData?.['stone']
@@ -225,10 +234,10 @@ export function useTVL(pid?: number): TVLInfo[] {
 
   const results = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'getReserves')
   const totalSupply = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'totalSupply')
-  const distributorBalance = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'balanceOf', [
+  const farmBalance = useMultipleContractSingleData(pairAddresses, PAIR_INTERFACE, 'balanceOf', [
     MASTERCHEF_ADDRESS[ChainId.MOONRIVER],
   ])
-  const distributorBalanceSingle = useMultipleContractSingleData(singleAddresses, PAIR_INTERFACE, 'balanceOf', [
+  const farmBalanceSingle = useMultipleContractSingleData(singleAddresses, PAIR_INTERFACE, 'balanceOf', [
     MASTERCHEF_ADDRESS[ChainId.MOONRIVER],
   ])
 
@@ -238,7 +247,6 @@ export function useTVL(pid?: number): TVLInfo[] {
         token.id.toLowerCase() == STONE_ADDRESS[chainId].toLowerCase() ||
         token.symbol == 'WMOVR' ||
         token.symbol == 'MOVR' ||
-        token.symbol == 'RIB' ||
         token.symbol == 'USDC' ||
         token.symbol == 'BUSD'
       )
@@ -250,9 +258,6 @@ export function useTVL(pid?: number): TVLInfo[] {
       }
       if (token.symbol == 'WMOVR' || token.symbol == 'MOVR') {
         return movrPrice
-      }
-      if (token.symbol == 'RIB' || token.symbol == 'RIB') {
-        return ribPrice
       }
       if (token.symbol == 'USDC' || token.symbol == 'BUSD') {
         return 1
@@ -275,7 +280,7 @@ export function useTVL(pid?: number): TVLInfo[] {
 
       const lpTotalSupply = totalSupply[i]?.result?.[0]
 
-      const distributorRatio = distributorBalance[i]?.result?.[0] / lpTotalSupply
+      const farmLpRatio = farmBalance[i]?.result?.[0] / lpTotalSupply
 
       const token0price = getPrice(token0)
       const token1price = getPrice(token1)
@@ -286,13 +291,13 @@ export function useTVL(pid?: number): TVLInfo[] {
       let lpTotalPrice = Number(token0total + token1total)
 
       if (isKnownToken(token0)) {
-        lpTotalPrice = token0total // * 2
+        lpTotalPrice = token0total * 2
       } else if (isKnownToken(token1)) {
-        lpTotalPrice = token1total // * 2
+        lpTotalPrice = token1total * 2
       }
 
       const lpPrice = lpTotalPrice / (lpTotalSupply / 10 ** 18)
-      const tvl = 0 // lpTotalPrice * distributorRatio
+      const tvl = lpTotalPrice * farmLpRatio
 
       return {
         lpToken,
@@ -301,7 +306,7 @@ export function useTVL(pid?: number): TVLInfo[] {
       }
     })
 
-    const singleTVL = distributorBalanceSingle.map((result, i) => {
+    const singleTVL = farmBalanceSingle.map((result, i) => {
       const { result: balance, loading } = result
 
       const { token0, lpToken } = singlePools[i]
@@ -326,18 +331,19 @@ export function useTVL(pid?: number): TVLInfo[] {
     return concat(singleTVL, lpTVL)
   }, [
     results,
-    distributorBalanceSingle,
+    farmBalanceSingle,
     chainId,
     stonePrice,
     movrPrice,
     ribPrice,
     totalSupply,
-    distributorBalance,
+    farmBalance,
     lpPools,
     singlePools,
   ])
 }
 
+//////////////////////////////////////////////////////////////
 export function useV2PairsWithPrice(
   currencies: [Currency | undefined, Currency | undefined][]
 ): [PairState, Pair | null, number][] {

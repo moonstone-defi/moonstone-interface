@@ -25,7 +25,7 @@ import Link from 'next/link'
 import ERC20_ABI from '../../constants/abis/erc20.json'
 import { Interface } from '@ethersproject/abi'
 import { Contract } from '@ethersproject/contracts'
-import { useTVL } from '../../hooks/useV2Pairs'
+import { useTVL, useFarmBalance } from '../../hooks/useV2Pairs'
 
 const FarmListItem2 = ({ farm, ...rest }) => {
   const { chainId } = useActiveWeb3React()
@@ -48,7 +48,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     let decimals = 18
     if (farm.lpToken.toLowerCase() == STONE_ADDRESS[chainId].toLowerCase()) {
       lpPrice = stonePrice
-      decimals = farm.pair.token0?.decimals
+      decimals = 18 // farm.pair.token0?.decimals
     } else if (farm.lpToken.toLowerCase() == WNATIVE[chainId].toLowerCase()) {
       lpPrice = movrPrice
     } else {
@@ -58,13 +58,13 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     farm.stonePrice = stonePrice
 
     const totalLp = useTVL()
-    const tvl =  Number(totalLp[farm.id].tvl ) * farm.lpPrice
-
+    const tvl =  Number(totalLp[farm.id].tvl ) // 
     return tvl
   }
 
-  const tvl = getTvl()
-  const roiPerBlock =
+  const tvl = 0 // getTvl()
+  
+  const roiPerBlock = 
     farm?.rewards?.reduce((previousValue, currentValue) => {
       return previousValue + currentValue.rewardPerBlock * currentValue.rewardPrice
     }, 0) / tvl
@@ -72,7 +72,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
   const roiPerHour = roiPerBlock * farm.blocksPerHour
   const roiPerDay = roiPerHour * 24
   const roiPerMonth = roiPerDay * 30
-  const roiPerYear = roiPerDay * 365
+  const roiPerYear = roiPerDay * 365 
 
   const { i18n } = useLingui()
 
@@ -150,9 +150,9 @@ const FarmListItem2 = ({ farm, ...rest }) => {
                       <Info />
                     </IconWrapper>
                     {/* {formatPercent(farm?.roiPerYear || 7508 * 100)} */}
-                    {roiPerYear > 0 ? 'NaN+' : formatPercent(roiPerYear * 100)}
+                    { formatPercent(roiPerYear * 100)}
                   </div>
-                  <div className="text-xs text-right md:text-base text-secondary">{i18n._(t`annualized`)}</div>
+                  <div className="text-xs text-right md:text-base text-secondary">{i18n._(t` `)}</div>
                 </div>
               </div>
             </Disclosure.Button>
