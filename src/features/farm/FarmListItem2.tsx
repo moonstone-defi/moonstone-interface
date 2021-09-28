@@ -62,7 +62,7 @@ const FarmListItem2 = ({ farm, ...rest }) => {
     return tvl
   }
 
-  const tvl =  0 // getTvl()
+  const tvl =   getTvl()
   console.log(farm.id, tvl, farm)
   const roiPerBlock = 
     farm?.rewards?.reduce((previousValue, currentValue) => {
