@@ -17,6 +17,13 @@
       "decimals": 18,
       "chainId": 1285,
       "logoURI": ""
+    },{
+      "name": "Freeriver Token",
+      "address": "0x63F2ADf5f76F00d48fe2CBef19000AF13Bb8de82",
+      "symbol": "FREE",
+      "decimals": 18,
+      "chainId": 1285,
+      "logoURI": "https://moonstone.games/images/tokens/free.png"
     },
     {
       "name": "MoonSwap Token",
