@@ -46,7 +46,7 @@ export const POOLS: AddressMap = {
         symbol: 'MOVR',
         decimals: 18,
       },
-      name: 'SOLAR',
+      name: 'SOLARBEAM',
       symbol: 'SLP',
     },
     '0x1F858954cad3B632EDc4AFA62792d96f36B9904C': {
@@ -63,7 +63,7 @@ export const POOLS: AddressMap = {
         symbol: 'USDC',
         decimals: 6,
       },
-      name: 'SOLAR',
+      name: 'SOLARBEAM',
       symbol: 'SLP',
     },
     '0xCA522d4c47f73c75bb2b8683D04eF367D8d4D05a': {
