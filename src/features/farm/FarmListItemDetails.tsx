@@ -94,7 +94,7 @@ const FarmListItem = ({ farm }) => {
                   variant="outlined"
                   color="light-green"
                   size="xs"
-                  disabled={farm?.id === '666'}
+                  disabled={farm?.id === '4'}
                   onClick={() => {
                     if (!balance.equalTo(ZERO)) {
                       if (liquidityToken?.symbol == 'STONE') {

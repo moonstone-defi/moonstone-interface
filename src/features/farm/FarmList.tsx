@@ -64,7 +64,7 @@ const FarmList = ({ farms, term, filter }) => {
       </div>
       {/* CHANGE HERE TO FILTER OUT FARMS */}
       <div className="flex-col mt-2">
-        {pools.map((farm, index) => (farm.id != 666 ? 
+        {pools.map((farm, index) => (farm.id != 4 ? 
           <FarmListItem2 key={index} farm={farm} /> : null
         ))}
       </div>
