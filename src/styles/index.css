@@ -48,6 +48,9 @@ body {
   padding-top: env(safe-area-inset-top); /* iOS 11.2 */
   /* For safari and chrome */
   overflow-y: overlay;
+  background-image: radial-gradient(darkgreen, black);
+  background-size: cover;
+
 }
 
 a {

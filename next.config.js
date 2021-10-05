@@ -41,7 +41,7 @@ module.exports = withBundleAnalyzer(
       return [
         {
           source: '/',
-          destination: '/farm',
+          destination: '/news',
           permanent: true,
         },
       ]
